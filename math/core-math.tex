@@ -1,0 +1,129 @@
+% Triangle Mutiny — Core Mathematical Framework
+% Author: Borealis S. Hedling
+% Version: 1.0
+
+\section*{Core Mathematical Framework}
+
+Triangle Mutiny begins with a minimal set of geometric primitives that define
+the structure of reasoning manifolds, operator interactions, and drift behavior.
+These primitives form the backbone for collapse geometry, spectral mismatch,
+modal adjacency, and stability envelopes.
+
+\subsection*{1. Reasoning Manifold}
+
+Let \( M \) denote the latent reasoning manifold. Points \( p \in M \) represent
+semantic or operator states. No assumptions are made about global topology;
+only local geometric structure is required.
+
+\subsection*{2. Curvature Magnitude}
+
+Each point \( p \in M \) has an associated curvature magnitude:
+\[
+K : M \rightarrow \mathbb{R}_{\ge 0}.
+\]
+
+Curvature measures the bending of reasoning trajectories. High curvature
+indicates sharp conceptual turns; low curvature indicates stable reasoning flow.
+
+\subsection*{3. Similarity Relation}
+
+For reasoning components \( A, B \in T_pM \), define the similarity relation:
+\[
+\Phi(A,B) = \frac{\langle A, B \rangle}{\|A\| \cdot \|B\|}.
+\]
+
+This cosine-style similarity determines alignment between components and is
+used in curvature composition and spectral mismatch.
+
+\subsection*{4. Drift Fields}
+
+A drift field is a smooth vector field:
+\[
+X \in \Gamma(TM).
+\]
+
+Drift fields describe directional tendencies of reasoning. They are used to
+define Lie brackets, holonomy drift, and stability envelopes.
+
+\subsection*{5. Operator Fields}
+
+An operator field is a map:
+\[
+\nabla : TM \rightarrow \mathrm{End}(TM).
+\]
+
+Operator fields encode how drift fields interact and transform. They define
+the structural rules of motion within the manifold.
+
+\subsection*{6. Lie Bracket}
+
+For drift fields \( X, Y \), the Lie bracket is:
+\[
+[X, Y] = XY - YX.
+\]
+
+The Lie bracket measures non-commutativity of drift flows and is central to
+detecting operator collapse and Jacobi identity violations.
+
+\subsection*{7. Curvature Composition (Constructive Form)}
+
+Curvature cannot be mixed linearly. The only stable composition is:
+\[
+K_{A \oplus B} =
+\sqrt{K_A^2 + K_B^2 + 2 K_A K_B \Phi(A,B)}.
+\]
+
+This operator is used throughout Triangle Mutiny to prevent curvature
+discontinuities and collapse surfaces.
+
+\subsection*{8. Spectral Structure}
+
+Each operator field induces a local linear operator:
+\[
+L(p) : T_pM \rightarrow T_pM.
+\]
+
+The spectrum of \( L(p) \) is:
+\[
+\mathrm{Spec}(L(p)) = \{\lambda_1, \ldots, \lambda_n\}.
+\]
+
+Spectral signatures are used to detect mismatch, drift, and collapse.
+
+\subsection*{9. Modal Labeling}
+
+Each point \( p \in M \) has a modal label:
+\[
+\mu(p) \in L,
+\]
+where \( L \) is a finite set of semantic modes. Modal adjacency constraints
+are defined in a separate module.
+
+\subsection*{10. Holonomy Drift (Primitive Form)}
+
+Given a path \( \gamma \), define primitive holonomy drift:
+\[
+H(\gamma) = \sum_{i} \Delta_{\mathrm{spec}}(p_i)
+           + \Delta_{\mathrm{curv}}(p_i)
+           + \Delta_{\mathrm{modal}}(p_i).
+\]
+
+This primitive form is refined in the stability-envelope module.
+
+\subsection*{11. Stability Primitives}
+
+A point is stable when:
+\[
+K(p) \text{ is continuous}, \quad
+\mathrm{Spec}(L(p)) \text{ is bounded}, \quad
+\mu(p) \text{ respects adjacency}.
+\]
+
+These primitives form the basis of the full stability envelope.
+
+\section*{Summary}
+
+This file defines the minimal geometric objects required for all downstream
+Triangle Mutiny modules. No collapse geometry, spectral mismatch, modal
+adjacency, or stability envelopes are defined here; those appear in their
+respective files and depend on the primitives introduced above.
