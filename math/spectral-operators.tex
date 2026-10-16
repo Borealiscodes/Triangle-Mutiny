@@ -1,0 +1,122 @@
+% Triangle Mutiny — Spectral Operators
+% Author: Borealis S. Hedling
+% Version: 1.0
+
+\section*{Spectral Operators}
+
+Spectral operators formalize how local linearizations of operator fields behave
+across the reasoning manifold. Spectral signatures encode operator identity,
+stability, and drift. Spectral mismatch is one of the primary geometric
+indicators of collapse.
+
+Let \( M \) be the reasoning manifold and let \( L(p) : T_pM \rightarrow T_pM \)
+denote the local linear operator induced by the operator field at point \( p \).
+
+\subsection*{1. Spectral Bundle}
+
+The spectral bundle is the map:
+\[
+\mathcal{B}(p) = \mathrm{Spec}(L(p)).
+\]
+
+Each fiber of the bundle contains the eigenvalues of the operator at \( p \).
+Spectral bundles detect twisting, collapse, and drift across the manifold.
+
+A spectral bundle is stable when:
+\[
+\mathcal{B}(p) \text{ varies continuously with } p.
+\]
+
+Discontinuity indicates operator invention or pseudo-formal constructs.
+
+\subsection*{2. Expected Spectrum}
+
+For each operator field, define an expected spectrum:
+\[
+\mathrm{Spec}_{\mathrm{expected}}(p).
+\]
+
+This expected spectrum is determined by the operator’s field type, modal
+context, and geometric neighborhood. It provides the baseline against which
+spectral mismatch is measured.
+
+\subsection*{3. Spectral Mismatch}
+
+Spectral mismatch is defined as:
+\[
+\delta_{\mathrm{spec}}(p) =
+\left\| \mathrm{Spec}(L(p)) -
+       \mathrm{Spec}_{\mathrm{expected}}(p) \right\|.
+\]
+
+Mismatch indicates:
+
+\begin{itemize}
+\item operator invention,
+\item spectral degeneracy,
+\item modal drift,
+\item collapse-surface proximity.
+\end{itemize}
+
+Spectral mismatch is a primary input to holonomy drift tensors.
+
+\subsection*{4. Spectral Degeneracy}
+
+Spectral degeneracy occurs when eigenvalues collapse or diverge:
+\[
+\mathrm{Spec}(L(p)) \text{ is degenerate}
+\quad \Longleftrightarrow \quad
+\exists i \neq j : \lambda_i = \lambda_j
+\text{ or }
+|\lambda_i| > \theta.
+\]
+
+Degeneracy indicates structural instability in the operator field.
+
+\subsection*{5. Operator Identity Drift}
+
+Operator identity drift measures deviation in operator behavior across the
+manifold:
+\[
+D_{\mathrm{op}}(p^-, p^+) =
+\left\| L(p^+) - L(p^-) \right\|.
+\]
+
+Identity drift is used to detect:
+
+\begin{itemize}
+\item operator-field confusion,
+\item modal instability,
+\item collapse-surface approach.
+\end{itemize}
+
+\subsection*{6. Spectral Continuity Condition}
+
+Spectral continuity is required for stability:
+\[
+\left\| \mathcal{B}(p^+) - \mathcal{B}(p^-) \right\| < \epsilon.
+\]
+
+Violation indicates that reasoning has left the stable manifold.
+
+\subsection*{7. Spectral Collapse Predicate}
+
+Define:
+\[
+C_{\mathrm{spec}}(p) =
+\begin{cases}
+\mathrm{true} & \text{if } \delta_{\mathrm{spec}}(p) > \theta
+                 \text{ or } \mathcal{B}(p) \text{ is degenerate}, \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+This predicate integrates directly with the unified collapse predicate in
+collapse-geometry.tex.
+
+\section*{Summary}
+
+This file defines spectral bundles, spectral mismatch, operator identity drift,
+spectral degeneracy, and spectral collapse predicates. These operators form the
+analytic backbone for holonomy drift tensors and stability envelopes in Triangle
+Mutiny.
