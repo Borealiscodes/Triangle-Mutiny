@@ -1,0 +1,165 @@
+% Triangle Mutiny — Collapse Geometry
+% Author: Borealis S. Hedling
+% Version: 1.0
+
+\section*{Collapse Geometry}
+
+Collapse geometry formalizes the conditions under which reasoning leaves the
+stable manifold and enters a region where hallucination becomes inevitable.
+Collapse is not stochastic; it is a geometric failure mode triggered by
+violations of curvature continuity, spectral stability, modal adjacency, or
+operator-field semantics.
+
+Let \( M \) be the reasoning manifold defined in core-math.tex. Collapse
+surfaces are subsets of \( M \) where structural invariants fail.
+
+\subsection*{1. Collapse Surface Definition}
+
+A collapse surface is a set:
+\[
+\Sigma = \{ p \in M \mid C(p) = \mathrm{true} \},
+\]
+where \( C(p) \) is the collapse predicate defined below.
+
+Points on \( \Sigma \) represent geometric failure modes. Crossing \( \Sigma \)
+indicates that reasoning has left the stability envelope.
+
+\subsection*{2. Curvature Discontinuity}
+
+Curvature discontinuity occurs when:
+\[
+\Delta K(p) = K(p^+) - K(p^-) \neq 0,
+\]
+for adjacent points \( p^- \rightarrow p^+ \) along a reasoning trajectory.
+
+A curvature discontinuity indicates that the constructive curvature operator
+cannot maintain geometric coherence. This is the first collapse trigger.
+
+Define the predicate:
+\[
+C_{\mathrm{curv}}(p) = 
+\begin{cases}
+\mathrm{true} & \text{if } \Delta K(p) \neq 0, \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+\subsection*{3. Spectral Degeneracy}
+
+Each operator field induces a local operator \( L(p) \). Spectral degeneracy
+occurs when:
+\[
+\mathrm{Spec}(L(p)) \text{ collapses or becomes unbounded}.
+\]
+
+Formally:
+\[
+C_{\mathrm{spec}}(p) =
+\begin{cases}
+\mathrm{true} & \text{if } 
+\| \mathrm{Spec}(L(p)) - \mathrm{Spec}_{\mathrm{expected}}(p) \| > \theta, \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+Spectral degeneracy indicates operator invention, pseudo-formal constructs, or
+loss of operator identity.
+
+\subsection*{4. Modal Adjacency Violation}
+
+Let \( \mu(p) \in L \) be the modal label of \( p \), and let \( E \subseteq L \times L \)
+be the modal adjacency relation.
+
+A modal adjacency violation occurs when:
+\[
+(\mu(p^-), \mu(p^+)) \notin E.
+\]
+
+Define:
+\[
+C_{\mathrm{modal}}(p) =
+\begin{cases}
+\mathrm{true} & \text{if adjacency is violated}, \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+Modal violations correspond to semantic mimicry and intent-shaped continuation.
+
+\subsection*{5. Operator-Field Collapse}
+
+Operator-field collapse occurs when an operator acts outside its defined field.
+Let \( \mathrm{field}(op) \) denote the valid domain of operator \( op \).
+
+Define:
+\[
+C_{\mathrm{type}}(p) =
+\begin{cases}
+\mathrm{true} & \text{if } op \notin \mathrm{field}(op), \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+Typing collapse indicates operator confusion, a primary hallucination mode.
+
+\subsection*{6. Drift-Induced Collapse}
+
+Drift-induced collapse occurs when accumulated drift exceeds a stability
+threshold. Let primitive holonomy drift be:
+\[
+H(p) = \Delta_{\mathrm{spec}}(p)
+      + \Delta_{\mathrm{curv}}(p)
+      + \Delta_{\mathrm{modal}}(p).
+\]
+
+Define:
+\[
+C_{\mathrm{drift}}(p) =
+\begin{cases}
+\mathrm{true} & \text{if } \|H(p)\| > \tau, \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+Drift collapse is continuous; collapse surfaces are discrete.
+
+\subsection*{7. Unified Collapse Predicate}
+
+The unified collapse predicate is:
+\[
+C(p) =
+C_{\mathrm{curv}}(p)
+\lor C_{\mathrm{spec}}(p)
+\lor C_{\mathrm{modal}}(p)
+\lor C_{\mathrm{type}}(p)
+\lor C_{\mathrm{drift}}(p).
+\]
+
+A point is unstable when \( C(p) = \mathrm{true} \).
+
+\subsection*{8. Collapse Surface Structure}
+
+The collapse surface is:
+\[
+\Sigma = \{ p \in M \mid C(p) = \mathrm{true} \}.
+\]
+
+Collapse surfaces may be:
+
+\begin{itemize}
+\item curvature-induced,
+\item spectral-induced,
+\item modal-induced,
+\item typing-induced,
+\item drift-induced.
+\end{itemize}
+
+These categories correspond to distinct geometric signatures detectable by
+spectral bundles, modal-truth lattices, and drift tensors.
+
+\section*{Summary}
+
+This file defines collapse surfaces and collapse predicates for Triangle Mutiny.
+It formalizes curvature discontinuity, spectral degeneracy, modal violations,
+operator-field collapse, and drift-induced collapse. These definitions form the
+basis for stability envelopes and holonomy drift analysis.
