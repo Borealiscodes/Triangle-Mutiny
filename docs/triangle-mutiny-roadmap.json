@@ -1,0 +1,190 @@
+{
+  "project": "triangle-mutiny",
+  "version": "1.0",
+  "artifacts": [
+    {
+      "id": "readme",
+      "path": "README.md",
+      "type": "docs",
+      "description": "Primary project overview, math summary, accessibility markup.",
+      "status": "complete",
+      "dependencies": []
+    },
+    {
+      "id": "license",
+      "path": "LICENSE",
+      "type": "docs",
+      "description": "MIT license for the repository.",
+      "status": "complete",
+      "dependencies": []
+    },
+    {
+      "id": "core-math",
+      "path": "math/core-math.tex",
+      "type": "math",
+      "description": "Formal math spine: curvature, similarity, drift fields, operator fields.",
+      "status": "pending",
+      "dependencies": []
+    },
+    {
+      "id": "collapse-geometry",
+      "path": "math/collapse-geometry.tex",
+      "type": "math",
+      "description": "Formal definition of collapse surfaces and collapse predicates.",
+      "status": "pending",
+      "dependencies": ["core-math"]
+    },
+    {
+      "id": "spectral-operators",
+      "path": "math/spectral-operators.tex",
+      "type": "math",
+      "description": "Spectral mismatch, spectral bundles, eigenstructure geometry.",
+      "status": "pending",
+      "dependencies": ["core-math"]
+    },
+    {
+      "id": "modal-adjacency",
+      "path": "math/modal-adjacency.tex",
+      "type": "math",
+      "description": "Discrete modal graph, adjacency constraints, transition rules.",
+      "status": "pending",
+      "dependencies": ["core-math"]
+    },
+    {
+      "id": "stability-envelope",
+      "path": "math/stability-envelope.tex",
+      "type": "math",
+      "description": "Holonomy drift tensor, stability envelope, collapse conditions.",
+      "status": "pending",
+      "dependencies": ["collapse-geometry", "spectral-operators"]
+    },
+    {
+      "id": "lean-toolchain",
+      "path": "lean/lean-toolchain",
+      "type": "lean",
+      "description": "Lean version pin for reproducible verification.",
+      "status": "pending",
+      "dependencies": []
+    },
+    {
+      "id": "lakefile",
+      "path": "lean/lakefile.lean",
+      "type": "lean",
+      "description": "Lean build configuration for Triangle Mutiny.",
+      "status": "pending",
+      "dependencies": ["lean-toolchain"]
+    },
+    {
+      "id": "lean-root",
+      "path": "lean/TriangleMutiny.lean",
+      "type": "lean",
+      "description": "Root Lean file importing all modules.",
+      "status": "pending",
+      "dependencies": ["lakefile"]
+    },
+    {
+      "id": "lean-modes",
+      "path": "lean/src/Modes.lean",
+      "type": "lean",
+      "description": "Decidable modal graph and adjacency relations.",
+      "status": "pending",
+      "dependencies": ["lean-root"]
+    },
+    {
+      "id": "lean-collapse",
+      "path": "lean/src/Collapse.lean",
+      "type": "lean",
+      "description": "Collapse surface predicate and collapse detection.",
+      "status": "pending",
+      "dependencies": ["lean-modes"]
+    },
+    {
+      "id": "lean-curvature",
+      "path": "lean/src/Curvature.lean",
+      "type": "lean",
+      "description": "Curvature combination operator and triangle inequality tests.",
+      "status": "pending",
+      "dependencies": ["lean-root"]
+    },
+    {
+      "id": "lean-drift",
+      "path": "lean/src/Drift.lean",
+      "type": "lean",
+      "description": "Drift fields, Lie bracket, Jacobi failure proofs.",
+      "status": "pending",
+      "dependencies": ["lean-root"]
+    },
+    {
+      "id": "lean-spectral",
+      "path": "lean/src/Spectral.lean",
+      "type": "lean",
+      "description": "Spectral mismatch operator and eigenvalue comparisons.",
+      "status": "pending",
+      "dependencies": ["lean-curvature"]
+    },
+    {
+      "id": "lean-stability",
+      "path": "lean/src/Stability.lean",
+      "type": "lean",
+      "description": "Holonomy drift tensor and stability envelope predicate.",
+      "status": "pending",
+      "dependencies": ["lean-collapse", "lean-spectral"]
+    },
+    {
+      "id": "py-collapse",
+      "path": "pseudocode/collapse.py",
+      "type": "pseudocode",
+      "description": "Collapse surface classifier pseudocode.",
+      "status": "pending",
+      "dependencies": ["collapse-geometry"]
+    },
+    {
+      "id": "py-spectral",
+      "path": "pseudocode/spectral.py",
+      "type": "pseudocode",
+      "description": "Spectral mismatch computation pseudocode.",
+      "status": "pending",
+      "dependencies": ["spectral-operators"]
+    },
+    {
+      "id": "py-holonomy",
+      "path": "pseudocode/holonomy.py",
+      "type": "pseudocode",
+      "description": "Holonomy drift tensor accumulation pseudocode.",
+      "status": "pending",
+      "dependencies": ["stability-envelope"]
+    },
+    {
+      "id": "py-stability",
+      "path": "pseudocode/stability.py",
+      "type": "pseudocode",
+      "description": "Stability envelope classifier pseudocode.",
+      "status": "pending",
+      "dependencies": ["py-holonomy", "py-collapse"]
+    },
+    {
+      "id": "example-modal",
+      "path": "examples/modal-graph-demo.md",
+      "type": "examples",
+      "description": "Example showing modal adjacency and valid/invalid transitions.",
+      "status": "pending",
+      "dependencies": ["lean-modes"]
+    },
+    {
+      "id": "example-collapse",
+      "path": "examples/collapse-surface-cases.md",
+      "type": "examples",
+      "description": "Examples of collapse geometry and collapse detection.",
+      "status": "pending",
+      "dependencies": ["lean-collapse"]
+    },
+    {
+      "id": "example-holonomy",
+      "path": "examples/holonomy-paths.md",
+      "type": "examples",
+      "description": "Holonomy drift accumulation examples.",
+      "status": "pending",
+      "dependencies": ["lean-stability"]
+    }
+  ]
+}
