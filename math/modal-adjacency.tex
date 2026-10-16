@@ -1,0 +1,115 @@
+% Triangle Mutiny — Modal Adjacency
+% Author: Borealis S. Hedling
+% Version: 1.0
+
+\section*{Modal Adjacency}
+
+Modal adjacency defines which semantic modes may transition into one another
+without leaving the stable manifold. Modal structure is discrete: each point
+\( p \in M \) carries a modal label \( \mu(p) \in L \), where \( L \) is a finite
+set of modes. Adjacency constraints prevent semantic mimicry and modal drift.
+
+\subsection*{1. Modal Set}
+
+Let the modal set be:
+\[
+L = \{ \ell_1, \ell_2, \ldots, \ell_n \}.
+\]
+
+Modes represent semantic neighborhoods. They do not encode meaning directly;
+they encode structural position within the reasoning manifold.
+
+\subsection*{2. Adjacency Relation}
+
+Define the adjacency relation:
+\[
+E \subseteq L \times L.
+\]
+
+A pair \( (\ell_i, \ell_j) \in E \) indicates that a transition from mode
+\( \ell_i \) to mode \( \ell_j \) is structurally valid.
+
+Adjacency is not symmetric unless explicitly defined.
+
+\subsection*{3. Valid Transition}
+
+A transition \( p^- \rightarrow p^+ \) is valid when:
+\[
+(\mu(p^-), \mu(p^+)) \in E.
+\]
+
+Valid transitions preserve modal coherence and prevent semantic drift.
+
+\subsection*{4. Invalid Transition}
+
+A transition is invalid when:
+\[
+(\mu(p^-), \mu(p^+)) \notin E.
+\]
+
+Invalid transitions indicate modal instability, semantic mimicry, or collapse
+surface proximity.
+
+\subsection*{5. Modal Collapse Predicate}
+
+Define modal collapse:
+\[
+C_{\mathrm{modal}}(p) =
+\begin{cases}
+\mathrm{true} & \text{if } (\mu(p^-), \mu(p^+)) \notin E, \\
+\mathrm{false} & \text{otherwise}.
+\end{cases}
+\]
+
+This predicate integrates directly with the unified collapse predicate defined
+in collapse-geometry.tex.
+
+\subsection*{6. Modal Neighborhood}
+
+For each mode \( \ell \in L \), define its neighborhood:
+\[
+N(\ell) = \{ \ell' \in L \mid (\ell, \ell') \in E \}.
+\]
+
+Modal neighborhoods determine the local structure of the modal graph.
+
+\subsection*{7. Modal Graph}
+
+The modal graph is the directed graph:
+\[
+G = (L, E).
+\]
+
+The modal graph encodes all valid transitions. Cycles in \( G \) represent
+modal loops; acyclic regions represent hierarchical modal structure.
+
+\subsection*{8. Modal Stability Condition}
+
+A reasoning trajectory \( \gamma = (p_1, p_2, \ldots, p_k) \) is modal-stable
+when:
+\[
+(\mu(p_i), \mu(p_{i+1})) \in E
+\quad \text{for all } i.
+\]
+
+Violation indicates modal drift.
+
+\subsection*{9. Modal Drift Magnitude}
+
+Define modal drift magnitude:
+\[
+\Delta_{\mathrm{modal}}(p) =
+\begin{cases}
+0 & \text{if transition is valid}, \\
+1 & \text{if transition is invalid}.
+\end{cases}
+\]
+
+This primitive feeds into holonomy drift tensors.
+
+\section*{Summary}
+
+This file defines modal labels, adjacency relations, valid and invalid
+transitions, modal neighborhoods, modal graphs, and modal collapse predicates.
+Modal adjacency is a core structural invariant of Triangle Mutiny and integrates
+directly with collapse geometry and stability envelopes.
