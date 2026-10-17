@@ -267,3 +267,46 @@ Timestamp: 17 October 2026 — 01:41 IST
 
 ---
 
+📜 Archival Provenance Footer — README v1.1
+
+`
+---
+Artifact: README-v1.1.md (Archived)
+Lane: Documentation • Interpretability • Historical Reference
+
+Reason:
+  README v1.1 represented the transitional interpretability layer between the
+  original v1.0 geometric explainer and the expanded v1.2 mathematical spine.
+  It introduced the tiered reading model, clarified impossibility results,
+  formalized constructive fixes, and established the first stable definitions
+  of collapse geometry, spectral mismatch, holonomy drift accumulation, and
+  stability envelopes.
+
+  As Triangle Mutiny evolves toward v1.3, incorporating explicit Tier-1
+  definitions, structural anchors, and container-first architecture, README
+  v1.1 is archived to preserve historical lineage and maintain reproducibility
+  across versions.
+
+Archive Path:
+  docs/Archive/README-v1.1.md
+
+Anchors:
+  - TriangleMutiny-Interpretability-v1.1
+  - ImpossibilityResults-v1.1
+  - ConstructiveFixes-v1.1
+  - CollapseGeometry-v1.1
+  - SpectralMismatch-v1.1
+  - HolonomyDrift-v1.1
+  - StabilityEnvelope-v1.1
+  - TieredReadingModel-v1.1
+
+Status: Archived • Non-Activating • Lineage-Preserved
+Maintainer: Borealis S. Hedling
+Location: Dublin, Ireland
+Timestamp: 17 October 2026 — 16:47 IST
+Provenance Hash: TM-v1.1-ΣΔ-20261017-DUB
+---
+`
+
+---
+
