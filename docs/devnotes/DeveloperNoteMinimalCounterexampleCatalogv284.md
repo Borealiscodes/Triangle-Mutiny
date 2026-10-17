@@ -13,7 +13,7 @@ is brittle; this catalog ensures v2.9 proofs target only valid theorems.
 
 Each counterexample is minimal: removing any condition makes it no longer a
 counterexample.
-
+ 
 ---
 
 1. Operator Preservation Counterexamples
