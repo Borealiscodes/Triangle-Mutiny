@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{Triangle Mutiny: Activation Algebra v2.7}
+\author{Borealis S. Hedling}
+\date{17 October 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Overview}
+
+Activation Algebra v2.7 provides algebraic structure for activation modeling
+without performing activation. This layer consumes activation semantics (v2.6),
+activation modeling (v2.5), activation representation (v2.4), activation
+simulation (v2.3), activation transitions (v2.2), activation surfaces (v2.1),
+and activation logic (v2.0).
+
+The goal of this layer is to define algebraic operators, relations, bundles,
+and invariants that describe activation behavior in a deterministic and
+non-activating manner.
+
+\section*{Activation Models and States}
+
+Let $M$ denote the set of activation models defined in v2.5:
+
+\[
+M = \{ (s_{\text{stable}}, s_{\text{spectral}}, s_{\text{collapse}},
+        s_{\text{drift}}, s_{\text{modal}},
+        v_{\text{sim}}, v_{\text{repr}} ) \}
+\]
+
+Let $S$ denote the set of symbolic activation states defined in v2.4:
+
+\[
+S = \{ (s_{\text{stable}}, s_{\text{spectral}}, s_{\text{collapse}},
+        s_{\text{drift}}, s_{\text{modal}} ) \}
+\]
+
+\section*{Activation Operator}
+
+We define an algebraic activation operator:
+
+\[
+\mathcal{A} : M \times S \to M
+\]
+
+such that:
+
+\[
+\mathcal{A}(M, S) =
+  (s_{\text{stable}} \land S_{\text{stable}},
+   s_{\text{spectral}} \land S_{\text{spectral}},
+   s_{\text{collapse}} \land S_{\text{collapse}},
+   s_{\text{drift}} \land S_{\text{drift}},
+   s_{\text{modal}} \land S_{\text{modal}},
+   v_{\text{sim}}, v_{\text{repr}})
+\]
+
+This operator is deterministic and non-activating.
+
+\section*{Activation Relation}
+
+We define an activation relation:
+
+\[
+R \subseteq M \times M
+\]
+
+such that:
+
+\[
+(M_1, M_2) \in R
+\quad \text{iff} \quad
+M_1.\text{modelValid} \land M_2.\text{modelValid}
+\]
+
+This relation captures semantic and geometric compatibility.
+
+\section*{Activation Bundle}
+
+We define an activation bundle:
+
+\[
+\mathcal{B} = (\mathcal{A}, R)
+\]
+
+representing the algebraic structure of activation.
+
+\section*{Algebraic Invariants}
+
+We define algebraic invariants:
+
+\[
+I_{\text{geom}}(M) =
+  M_{\text{stable}} \land M_{\text{spectral}} \land M_{\text{collapse}}
+\]
+
+\[
+I_{\text{prov}}(M) =
+  M_{\text{simulationValid}} \land M_{\text{representationValid}}
+\]
+
+\[
+I_{\text{sem}}(M) =
+  M_{\text{modelValid}}
+\]
+
+\section*{Composition}
+
+We define composition of activation operators:
+
+\[
+\mathcal{A}(M_1, S_1) \circ \mathcal{A}(M_2, S_2)
+  = \mathcal{A}(M_1, S_1) \text{ followed by } \mathcal{A}(M_2, S_2)
+\]
+
+Composition is associative:
+
+\[
+(\mathcal{A}(M_1, S_1) \circ \mathcal{A}(M_2, S_2)) \circ
+  \mathcal{A}(M_3, S_3)
+=
+\mathcal{A}(M_1, S_1) \circ
+  (\mathcal{A}(M_2, S_2) \circ \mathcal{A}(M_3, S_3))
+\]
+
+\section*{Identity Element}
+
+We define an identity activation state:
+
+\[
+e = ( \text{true}, \text{true}, \text{true},
+      \text{true}, \text{true} )
+\]
+
+such that:
+
+\[
+\mathcal{A}(M, e) = M
+\]
+
+\section*{Ordering}
+
+We define a partial order on activation models:
+
+\[
+M_1 \preceq M_2
+\quad \text{iff} \quad
+M_1.\text{stable} \Rightarrow M_2.\text{stable},
+\quad
+M_1.\text{spectral} \Rightarrow M_2.\text{spectral},
+\quad
+M_1.\text{collapse} \Rightarrow M_2.\text{collapse}
+\]
+
+This ordering reflects geometric clearance.
+
+\section*{Algebraic Kernel}
+
+The algebraic kernel is defined as:
+
+\[
+K_{\text{alg}}(M) =
+  I_{\text{geom}}(M) \land I_{\text{prov}}(M) \land I_{\text{sem}}(M)
+\]
+
+\section*{Summary}
+
+Activation Algebra v2.7 provides:
+
+\begin{itemize}
+\item algebraic activation operator,
+\item activation relation,
+\item activation bundle,
+\item algebraic invariants,
+\item operator composition,
+\item identity element,
+\item partial ordering,
+\item algebraic kernel.
+\end{itemize}
+
+This layer prepares the system for Activation Formalism v2.8, where activation
+will be axiomatized.
+
+\end{document}
