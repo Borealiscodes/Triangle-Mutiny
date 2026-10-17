@@ -1,0 +1,59 @@
+{
+  "version": "1.5",
+  "phase": "population",
+  "activation_ready": false,
+  "tasks": {
+    "math_spine": {
+      "populate_curvature_operators": false,
+      "populate_spectral_mismatch_functions": false,
+      "populate_modal_adjacency_tables": false,
+      "populate_drift_tensor_operators": false,
+      "populate_collapse_severity_functions": false,
+      "populate_stability_envelope_thresholds": false
+    },
+    "governance_layer": {
+      "populate_invariants": false,
+      "populate_traversal_rules": false,
+      "populate_governance_corrections": false
+    },
+    "deterministic_kernel": {
+      "implement_invariant_evaluation": false,
+      "implement_stability_classification": false,
+      "implement_collapse_detection": false,
+      "implement_drift_accumulation": false
+    },
+    "rust_runtime": {
+      "implement_deterministic_transitions": false,
+      "implement_invariant_checks": false,
+      "implement_collapse_rejection": false,
+      "implement_provenance_emission": false
+    },
+    "provenance_shield": {
+      "populate_invariant_report_logic": false,
+      "populate_collapse_report_logic": false,
+      "populate_audit_trail_entries": false,
+      "populate_lineage_tracking": false
+    },
+    "activation_geometry": {
+      "populate_activation_thresholds": false,
+      "populate_activation_drift_limits": false,
+      "populate_activation_spectral_limits": false,
+      "populate_activation_modal_limits": false,
+      "populate_activation_curvature_limits": false
+    }
+  },
+  "dependencies": {
+    "math_spine": [],
+    "governance_layer": ["math_spine"],
+    "deterministic_kernel": ["governance_layer"],
+    "rust_runtime": ["deterministic_kernel"],
+    "provenance_shield": ["rust_runtime"],
+    "activation_geometry": [
+      "math_spine",
+      "governance_layer",
+      "deterministic_kernel",
+      "rust_runtime",
+      "provenance_shield"
+    ]
+  }
+}
