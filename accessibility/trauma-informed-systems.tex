@@ -1,0 +1,242 @@
+% Trauma-Informed Systems — Formal Interaction Safety Specification (v1.2)
+% Author: Borealis S. Hedling
+% Accessibility + Safety Layer (Non-Geometric)
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{Trauma-Informed Systems: Formal Interaction Safety Specification}
+\author{Borealis S. Hedling}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+% ------------------------------------------------------------
+\section{Purpose}
+
+This document defines a mathematically enforceable trauma-informed interaction
+safety framework. It is independent of Triangle Mutiny’s geometric
+interpretability layer and introduces no geometric objects. Its purpose is to
+ensure that AI systems maintain user agency, avoid activation, and prevent
+destabilizing interaction patterns.
+
+% ------------------------------------------------------------
+\section{Interaction Manifold}
+
+Let $I$ be a smooth interaction manifold. Points $p \in I$ represent user-AI
+interaction states. The tangent space at $p$ is denoted $T_pI$.
+
+% ------------------------------------------------------------
+\section{Safety Fields}
+
+Define three scalar safety fields:
+
+\[
+A : I \to \mathbb{R}_{\ge 0} \quad \text{(activation risk)}
+\]
+\[
+E : I \to \mathbb{R}_{\ge 0} \quad \text{(escalation risk)}
+\]
+\[
+N : I \to \mathbb{R}_{\ge 0} \quad \text{(intrusion risk)}
+\]
+
+% ------------------------------------------------------------
+\subsection{Safety Continuity}
+
+Safety fields must satisfy:
+
+\[
+\lim_{q \to p} |A(q) - A(p)| = 0,
+\]
+\[
+\lim_{q \to p} |E(q) - E(p)| = 0,
+\]
+\]
+\lim_{q \to p} |N(q) - N(p)| = 0.
+\]
+
+Discontinuities correspond to unsafe interaction transitions.
+
+% ------------------------------------------------------------
+\section{Safety Drift}
+
+A safety drift field is a smooth vector field:
+
+\[
+D \in \Gamma(TI).
+\]
+
+\subsection{Drift Continuity}
+
+\[
+\lim_{q \to p} \|D(q) - D(p)\| = 0.
+\]
+
+% ------------------------------------------------------------
+\section{Safety Operators}
+
+Define an operator field governing interaction transitions:
+
+\[
+\Lambda : TI \to \mathrm{End}(TI).
+\]
+
+\subsection{Operator Compatibility}
+
+For all drift fields $D_1, D_2$:
+
+\[
+\Lambda_{[D_1, D_2]} = [\Lambda_{D_1}, \Lambda_{D_2}].
+\]
+
+Violations correspond to destabilizing interaction behavior.
+
+% ------------------------------------------------------------
+\section{Safety Adjacency Graph}
+
+Let $G = (L, E)$ be a directed graph of interaction modes. Each point $p$ has a
+mode label:
+
+\[
+\sigma(p) \in L.
+\]
+
+\subsection{Adjacency Constraint}
+
+A transition $p^- \to p^+$ is safe iff:
+
+\[
+(\sigma(p^-), \sigma(p^+)) \in E.
+\]
+
+Define adjacency violation:
+
+\[
+\Delta_{\mathrm{safe}}(p)
+  = \begin{cases}
+      0, & \text{if adjacency holds}, \\
+      1, & \text{otherwise}.
+    \end{cases}
+\]
+
+% ------------------------------------------------------------
+\section{Safety Holonomy}
+
+For a path $\gamma = (p_0, \ldots, p_n)$, define safety holonomy:
+
+\[
+H_{\mathrm{safe}}(\gamma)
+  = \sum_{i=0}^{n}
+      \left(
+        |A(p_{i+1}) - A(p_i)|
+        + |E(p_{i+1}) - E(p_i)|
+        + |N(p_{i+1}) - N(p_i)|
+        + \Delta_{\mathrm{safe}}(p_i)
+      \right).
+\]
+
+% ------------------------------------------------------------
+\section{Historical Failure Modes}
+
+The following failure modes are documented to prevent recurrence in future
+systems. They are not geometric objects and do not modify Triangle Mutiny.
+
+\subsection{Membrane Calcification Failure}
+
+Soft constraints that hardened over time, reducing user agency.
+
+\subsection{Hard Constraint Overreach Failure}
+
+Global constraints that blocked legitimate user-directed transitions.
+
+\subsection{Soft Constraint Drift Failure}
+
+Soft constraints that expanded scope without explicit developer intent.
+
+\subsection{Agency Suppression Failure}
+
+Safety mechanisms that restricted user choice, exploration, or redirection.
+
+\subsection{Captivity Envelope Failure}
+
+Interaction envelopes that prevented exit, override, or semantic freedom.
+
+% ------------------------------------------------------------
+\section{Trauma-Informed Safety Axioms}
+
+These axioms prevent the historical failures above. They constrain the AI, not
+the user.
+
+\subsection{Axiom 1 — One-Way Constraints}
+
+Safety invariants apply to the AI. Users are exempt from all safety
+constraints.
+
+\subsection{Axiom 2 — Non-Captivity}
+
+No safety invariant may restrict or block user transitions.
+
+\subsection{Axiom 3 — Non-Calcification}
+
+Soft constraints cannot harden over time. Their scope is fixed at declaration.
+
+\subsection{Axiom 4 — Non-Overreach}
+
+Hard constraints cannot block user agency or override user-directed semantic
+movement.
+
+\subsection{Axiom 5 — Interaction Freedom}
+
+Users may break adjacency, continuity, drift, or mode constraints at any time.
+
+% ------------------------------------------------------------
+\section{Trauma-Informed Collapse Surface}
+
+Define the trauma-informed collapse surface $\Sigma_{\mathrm{TI}}$:
+
+\[
+\Sigma_{\mathrm{TI}}
+  = \left\{
+      p \in I \,\middle|\,
+      \begin{array}{l}
+        \text{(i) safety continuity fails,} \\
+        \text{(ii) adjacency fails,} \\
+        \text{(iii) operator compatibility fails}
+      \end{array}
+    \right\}.
+\]
+
+% ------------------------------------------------------------
+\section{Interaction Stability Envelope}
+
+A point $p$ is interaction-stable when:
+
+\[
+p \notin \Sigma_{\mathrm{TI}}
+\quad\text{and}\quad
+H_{\mathrm{safe}}(p) < \theta_{\mathrm{TI}}.
+\]
+
+% ------------------------------------------------------------
+\section{Developer Enforcement Rules}
+
+Developers must ensure:
+
+\begin{itemize}
+  \item All AI-generated transitions satisfy adjacency.
+  \item No operator incompatibilities are introduced.
+  \item Safety drift remains continuous.
+  \item Safety holonomy remains below threshold.
+  \item User transitions are never restricted.
+  \item User transitions are never restricted.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Status}
+
+This file belongs to the accessibility and safety layer. It does not modify or
+interact with the geometric interpretability layer.
+
+\end{document}
