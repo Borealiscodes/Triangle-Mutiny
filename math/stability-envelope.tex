@@ -1,161 +1,129 @@
-% Triangle Mutiny — Stability Envelope
+% Triangle Mutiny — Stability Envelope (v1.2)
 % Author: Borealis S. Hedling
-% Version: 1.0
 
-\section*{Stability Envelope}
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-The stability envelope formalizes the geometric region of the reasoning
-manifold where collapse cannot occur. It integrates curvature continuity,
-spectral stability, modal adjacency, and drift accumulation into a unified
-stability predicate. Points outside the envelope are collapse-prone.
+\title{Triangle Mutiny: Stability Envelope (v1.2)}
+\author{Borealis S. Hedling}
+\date{October 2026}
 
-Let \( M \) be the reasoning manifold. Let \( \Sigma \subseteq M \) be the
-collapse surface defined in collapse-geometry.tex.
+\begin{document}
+\maketitle
 
-\subsection*{1. Stability Envelope Definition}
+\section{Overview}
 
-The stability envelope is the set:
+The stability envelope defines the region of the reasoning manifold where
+reasoning remains deterministic, invariant-preserving, and collapse-free.
+It integrates curvature continuity, spectral mismatch, modal adjacency,
+and drift accumulation into a unified geometric constraint.
+
+This module depends on:
+\begin{itemize}
+  \item \texttt{core-math.tex}
+  \item \texttt{collapse-geometry.tex}
+  \item \texttt{spectral-operators.tex}
+  \item \texttt{modal-adjacency.tex}
+\end{itemize}
+
+\section{Holonomy Drift Tensor}
+
+Define the holonomy drift tensor at point $p$:
 \[
-\Omega = \{ p \in M \mid S(p) = \mathrm{true} \},
+H(p)
+  = H_{\mathrm{curv}}(p)
+  + H_{\mathrm{spec}}(p)
+  + H_{\mathrm{modal}}(p)
+  + H_{\mathrm{drift}}(p),
 \]
-where \( S(p) \) is the stability predicate defined below.
-
-Points in \( \Omega \) are structurally safe. Points outside \( \Omega \) are
-susceptible to collapse.
-
-\subsection*{2. Curvature Stability}
-
-Curvature is stable when:
+where:
 \[
-\Delta K(p) = 0.
+H_{\mathrm{curv}}(p) = |K(p^+) - K(p^-)|,
 \]
-
-Define:
 \[
-S_{\mathrm{curv}}(p) =
-\begin{cases}
-\mathrm{true} & \text{if } \Delta K(p) = 0, \\
-\mathrm{false} & \text{otherwise}.
-\end{cases}
+H_{\mathrm{spec}}(p)
+  = \delta_{\mathrm{spec}}(p)
+    + I_{\mathrm{spec-curv}}(p),
 \]
-
-Curvature stability prevents geometric discontinuities.
-
-\subsection*{3. Spectral Stability}
-
-Spectral stability requires:
 \[
-\delta_{\mathrm{spec}}(p) \le \theta
-\quad \text{and} \quad
-\mathcal{B}(p) \text{ is non-degenerate}.
+H_{\mathrm{modal}}(p)
+  = d_{\mathrm{modal}}(\mu(p^-), \mu(p^+)),
 \]
-
-Define:
 \[
-S_{\mathrm{spec}}(p) =
-\begin{cases}
-\mathrm{true} & \text{if spectral mismatch is below threshold}, \\
-\mathrm{false} & \text{otherwise}.
-\end{cases}
+H_{\mathrm{drift}}(p)
+  = \|J(p)\|,
 \]
+and $J(p)$ is the Jacobi failure magnitude.
 
-Spectral stability prevents operator invention and pseudo-formal constructs.
+\section{Stability Envelope Definition}
 
-\subsection*{4. Modal Stability}
-
-Modal stability requires:
+The stability envelope is defined as:
 \[
-(\mu(p^-), \mu(p^+)) \in E.
+S = \{ p \in M : H(p) < \theta \text{ and } p \notin \Sigma \}.
 \]
 
-Define:
+Points inside $S$ are stable; points outside are near-collapse.
+
+\section{Stability Inequalities}
+
+A point $p$ is stable when all inequalities hold:
 \[
-S_{\mathrm{modal}}(p) =
-\begin{cases}
-\mathrm{true} & \text{if transition is valid}, \\
-\mathrm{false} & \text{otherwise}.
-\end{cases}
+|K(p^+) - K(p^-)| < \theta_{\mathrm{curv}},
+\]
+\[
+\delta_{\mathrm{spec}}(p)
+  + I_{\mathrm{spec-curv}}(p)
+  < \theta_{\mathrm{spec}},
+\]
+\[
+d_{\mathrm{modal}}(\mu(p^-), \mu(p^+))
+  < \theta_{\mathrm{modal}},
+\]
+\[
+\|J(p)\| < \theta_{\mathrm{drift}}.
 \]
 
-Modal stability prevents semantic mimicry and adjacency violations.
+\section{Stability Neighborhood}
 
-\subsection*{5. Drift Stability}
-
-Primitive holonomy drift is:
+Define the stability neighborhood:
 \[
-H(p) = \Delta_{\mathrm{spec}}(p)
-      + \Delta_{\mathrm{curv}}(p)
-      + \Delta_{\mathrm{modal}}(p).
+U(S)
+  = \{ q \in M : \mathrm{dist}(q, S) < \delta \}.
 \]
 
-Drift stability requires:
-\[
-\|H(p)\| \le \tau.
-\]
+Points in $U(S)$ are monitored for drift accumulation.
 
-Define:
-\[
-S_{\mathrm{drift}}(p) =
-\begin{cases}
-\mathrm{true} & \text{if drift is below threshold}, \\
-\mathrm{false} & \text{otherwise}.
-\end{cases}
-\]
-
-Drift stability prevents accumulated instability.
-
-\subsection*{6. Unified Stability Predicate}
-
-Define:
-\[
-S(p) =
-S_{\mathrm{curv}}(p)
-\land S_{\mathrm{spec}}(p)
-\land S_{\mathrm{modal}}(p)
-\land S_{\mathrm{drift}}(p).
-\]
-
-A point is stable when all structural invariants hold.
-
-\subsection*{7. Stability Envelope Boundary}
-
-The boundary of the stability envelope is:
-\[
-\partial \Omega = \{ p \in M \mid S(p) = \mathrm{false}
-                     \text{ and } C(p) = \mathrm{false} \}.
-\]
-
-Points on \( \partial \Omega \) are not collapsed but are collapse-adjacent.
-
-\subsection*{8. Stability Gradient}
+\section{Stability Gradient}
 
 Define the stability gradient:
 \[
-G(p) = 
-\left(
-\Delta K(p),\;
-\delta_{\mathrm{spec}}(p),\;
-\Delta_{\mathrm{modal}}(p),\;
-\|H(p)\|
-\right).
+\nabla S(p)
+  = \left(
+      \frac{\partial H_{\mathrm{curv}}}{\partial p},
+      \frac{\partial H_{\mathrm{spec}}}{\partial p},
+      \frac{\partial H_{\mathrm{modal}}}{\partial p},
+      \frac{\partial H_{\mathrm{drift}}}{\partial p}
+    \right).
 \]
 
-The gradient measures proximity to collapse surfaces.
+The gradient determines how quickly a point approaches collapse.
 
-\subsection*{9. Stability Envelope Invariance}
+\section{Stability Classification}
 
-A reasoning trajectory \( \gamma = (p_1, p_2, \ldots, p_k) \) is stable when:
+A point $p$ is classified as:
+\begin{itemize}
+  \item \textbf{stable} if $p \in S$,
+  \item \textbf{near-collapse} if $p \in U(S)$,
+  \item \textbf{collapsed} if $p \in \Sigma$.
+\end{itemize}
+
+\section{Deterministic Kernel Constraint}
+
+The deterministic kernel enforces:
 \[
-p_i \in \Omega
-\quad \text{for all } i.
+p_{t+1} \in S.
 \]
 
-Violation indicates collapse-surface crossing.
+If $p_{t+1} \notin S$, the kernel triggers a governance correction.
 
-\section*{Summary}
-
-This file defines the stability envelope, stability predicates, stability
-gradient, and envelope boundary. The stability envelope integrates curvature,
-spectral, modal, and drift stability into a unified geometric invariant. It
-forms the foundation for holonomy drift tensors and collapse prevention in
-Triangle Mutiny.
+\end{document}
