@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Activation Formalism Dependency Map Schema v2.8",
+  "type": "object",
+
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "2.8"
+    },
+
+    "axioms": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "definitions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "lemmas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "depends_on": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["name", "depends_on"]
+      }
+    },
+
+    "theorem_schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "depends_on": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "proof_obligation": { "type": "string" }
+        },
+        "required": ["name", "depends_on", "proof_obligation"]
+      }
+    },
+
+    "kernel_hierarchy": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "KernelGeom",
+          "KernelProv",
+          "KernelSem",
+          "KernelAlg"
+        ]
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+
+    "geometric_constraints": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "reversible_algebra_constraints": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+
+  "required": [
+    "version",
+    "axioms",
+    "definitions",
+    "lemmas",
+    "theorem_schemas",
+    "kernel_hierarchy",
+    "geometric_constraints",
+    "reversible_algebra_constraints"
+  ]
+}
