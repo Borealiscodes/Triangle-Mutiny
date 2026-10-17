@@ -1,0 +1,148 @@
+% Triangle Mutiny — Activation Geometry (v1.4)
+% Author: Borealis S. Hedling
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{Triangle Mutiny: Activation Geometry (v1.4)}
+\author{Borealis S. Hedling}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\section{Overview}
+
+Activation Geometry defines the safety manifold required for system activation.
+It evaluates the entire deterministic reasoning stack, including curvature,
+spectral mismatch, modal adjacency, drift accumulation, collapse geometry,
+stability envelope, and provenance integrity.
+
+Activation Geometry does not populate the system. It verifies that population
+is safe.
+
+\section{Activation Manifold}
+
+Define the activation manifold:
+\[
+A = M \setminus (\Sigma \cup U(\Sigma)),
+\]
+where:
+\begin{itemize}
+  \item $\Sigma$ is the collapse surface,
+  \item $U(\Sigma)$ is the collapse neighborhood.
+\end{itemize}
+
+Points in $A$ are eligible for activation.
+
+\section{Activation Envelope}
+
+Define the activation envelope:
+\[
+E_A = \{ p \in A : H(p) < \theta_A \},
+\]
+where $H(p)$ is the holonomy drift tensor.
+
+Points in $E_A$ satisfy all activation safety inequalities.
+
+\section{Activation Drift Condition}
+
+Activation requires:
+\[
+H(p)
+  = H_{\mathrm{curv}}(p)
+  + H_{\mathrm{spec}}(p)
+  + H_{\mathrm{modal}}(p)
+  + H_{\mathrm{drift}}(p)
+  < \theta_A.
+\]
+
+\section{Activation Spectral Condition}
+
+Activation requires:
+\[
+\delta_{\mathrm{spec}}(p)
+  + I_{\mathrm{spec-curv}}(p)
+  < \theta_{A,\mathrm{spec}}.
+\]
+
+\section{Activation Modal Condition}
+
+Activation requires:
+\[
+d_{\mathrm{modal}}(\mu(p^-), \mu(p^+))
+  < \theta_{A,\mathrm{modal}}.
+\]
+
+\section{Activation Curvature Condition}
+
+Activation requires:
+\[
+|K(p^+) - K(p^-)| < \theta_{A,\mathrm{curv}}.
+\]
+
+\section{Activation Provenance Condition}
+
+Activation requires complete provenance:
+\[
+\mathrm{lineage}(p) \text{ is complete}.
+\]
+
+Provenance must include:
+\begin{itemize}
+  \item invariant evaluations,
+  \item collapse interactions,
+  \item drift accumulation,
+  \item modal transitions,
+  \item spectral mismatch history.
+\end{itemize}
+
+\section{Activation Predicate}
+
+Define the activation predicate:
+\[
+A(p)
+  := p \in E_A
+     \land \mathrm{lineage}(p) \text{ complete}.
+\]
+
+Activation is permitted when $A(p)$ holds.
+
+\section{Activation Failure Modes}
+
+Activation fails when any of the following hold:
+\[
+p \in \Sigma,
+\]
+\[
+p \in U(\Sigma),
+\]
+\[
+H(p) \ge \theta_A,
+\]
+\[
+\delta_{\mathrm{spec}}(p)
+  + I_{\mathrm{spec-curv}}(p)
+  \ge \theta_{A,\mathrm{spec}},
+\]
+\[
+d_{\mathrm{modal}}(\mu(p^-), \mu(p^+))
+  \ge \theta_{A,\mathrm{modal}},
+\]
+\[
+|K(p^+) - K(p^-)| \ge \theta_{A,\mathrm{curv}},
+\]
+\[
+\mathrm{lineage}(p) \text{ incomplete}.
+\]
+
+\section{Activation Classification}
+
+A point $p$ is:
+\begin{itemize}
+  \item \textbf{activatable} if $A(p)$ holds,
+  \item \textbf{non-activatable} if any activation inequality fails,
+  \item \textbf{forbidden} if $p \in \Sigma$.
+\end{itemize}
+
+\end{document}
