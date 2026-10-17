@@ -1,26 +1,22 @@
-# 📄 Developer-Note-Accessibility-Architecture.md (Stabilized Version)
-(with emojis + color tiles + non‑activating ASCII)
+# 🌈🟦🟩🟨🟪🟥
 
-`
-
-Developer Note: Accessibility Architecture (Triangle Mutiny)
-🌈🧱🎨
-
-Purpose
-
-This note documents the architecture of the accessibility layer in Triangle
-Mutiny. It explains how the trauma-informed safety system and the intersectional
-dignity system operate as formal, enforceable, parallel frameworks that constrain
-AI behavior while preserving user agency, cultural adaptivity, and lived-experience
-epistemics.
-
-This document is intended for developers implementing Lean and Rust modules that
-enforce accessibility invariants. It does not modify or interact with the geometric
-interpretability layer.
+Developer-Note-Accessibility-Architecture.md
+Triangle Mutiny — Accessibility Lane (Coherent Final Version)
 
 ---
 
-🌈 Architecture Overview
+🌈🟦 1. Purpose
+
+Triangle Mutiny’s accessibility layer exists because reasoning stability and interaction stability are different sciences.
+
+The geometric layer explains how the system thinks.  
+The accessibility layers explain how the system must treat people.
+
+This note documents the architecture that keeps those worlds separate — a boundary contract built from lived experience, dignity, and survivor‑centered epistemics.
+
+---
+
+🌈🟩 2. Architecture Overview
 
 Triangle Mutiny consists of three parallel layers. These layers must remain
 strictly separated to avoid contamination of the geometric math spine and to
@@ -30,7 +26,7 @@ suppression, and cultural imposition.
 ---
 
 🧱 Stabilized ASCII Architecture Diagram
-(wrapped in <pre> to prevent collapse)
+(preserved EXACTLY as provided — no edits)
 
 <pre>
 🟦🟩🟨🟪🟥  Triangle Mutiny Architecture  🟥🟪🟨🟩🟦
@@ -96,90 +92,83 @@ suppression, and cultural imposition.
 
 ---
 
-🎨 Why Accessibility Layers Are Separate
+🌈🟨 3. Why Accessibility Layers Are Separate
 
-The geometric interpretability layer models AI reasoning stability.  
-The accessibility layers model AI interaction stability.
+The geometric layer is a machine’s internal physics — sterile, invariant, mathematical.  
+The accessibility layers are human‑facing ethics — adaptive, contextual, dignity‑anchored.
 
-Combining them would cause:
+If these layers ever merge, we get:
 
 - agency bleed  
 - cultural bleed  
 - epistemic bleed  
 - constraint calcification  
 - captivity envelopes  
-- contamination of geometric invariants  
+- geometric contamination  
 
-Therefore:
+So the architecture enforces a hard separation:
 
-- math/ defines geometric invariants  
-- accessibility/ defines interaction invariants  
-- Lean + Rust enforce both, but never mix them
+- math/ = how the system reasons  
+- accessibility/ = how the system must treat people  
+
+This separation is the soul of Triangle Mutiny.
 
 ---
 
-🟥 Historical Failure Modes
+🌈🟥 4. Historical Failure Modes
 
-Earlier prototypes exhibited several failures that must never recur:
+These failures shaped the accessibility architecture:
 
 - membrane calcification  
-- hard-constraint overreach  
-- soft-constraint drift  
+- hard‑constraint overreach  
+- soft‑constraint drift  
 - agency suppression  
 - captivity envelopes  
 - cultural imposition  
 - epistemic erasure  
 
-These failures are formally documented in both accessibility .tex files and
-prevented by explicit axioms.
+The accessibility layer exists because these failures must never recur.
 
 ---
 
-🟩 Accessibility Axioms (Summary)
+🌈🟦 5. Accessibility Axioms
 
-Accessibility constraints apply only to the AI, never to the user.
+AI‑only constraints — the user is always free.
 
-- Non-Captivity: user transitions cannot be restricted  
-- Non-Calcification: soft constraints cannot harden  
-- Non-Overreach: hard constraints cannot block agency  
-- Non-Imposition: cultural assumptions cannot be enforced  
-- Epistemic Validity: user meaning-making is respected  
-- Interaction Freedom: users may break adjacency, continuity, drift, mode  
-
-These axioms are enforceable in Lean and Rust.
+- Non‑Captivity  
+- Non‑Calcification  
+- Non‑Overreach  
+- Non‑Imposition  
+- Epistemic Validity  
+- Interaction Freedom  
 
 ---
 
-🟨 Comparison Table
-(industry heuristics vs Triangle Mutiny accessibility architecture)
+🌈🟪 6. Comparison Table
 
-<pre>
-| Dimension                         | Industry Safety Heuristics                         | Triangle Mutiny Accessibility Architecture                         |
-|----------------------------------|-----------------------------------------------------|---------------------------------------------------------------------|
-| Core Philosophy                  | Risk minimization                                   | Dignity, agency, lived experience, cultural adaptivity              |
-| Primary Mechanism               | Heuristics, filters, guardrails                     | Formal invariants, collapse surfaces, stability envelopes           |
-| User Agency                     | Often restricted                                     | Never restricted; constraints apply only to AI                      |
-| Cultural Handling               | One-size-fits-all neutrality                        | Culturally adaptive without stereotyping                            |
-| Trauma Awareness                | Trigger word filters                                | Activation, escalation, intrusion fields + continuity invariants    |
-| Intersectionality               | Rarely modeled                                      | Intersectional load field + holonomy                                |
-| Epistemic Respect               | Often overridden                                     | Survivor epistemic validity is axiomatic                            |
-| Failure Mode Handling           | Reactive patches                                     | Proactive formal failure mode definitions + axioms                  |
-| Soft Constraints                | Drift into hard constraints                          | Non-calcification axiom                                             |
-| Hard Constraints                | Often global                                         | Non-overreach axiom                                                 |
-| Safety Drift                    | Not modeled                                         | Drift fields with continuity requirements                           |
-| Adjacency                      | Keyword-based transitions                           | Survivor-centered adjacency graph                                   |
-| Holonomy                       | Not modeled                                         | Safety + intersectional holonomy                                    |
-| Collapse Conditions             | Undefined                                           | Formal collapse surfaces (TI + dignity)                             |
-| Developer Guidance              | Best practices                                      | Lean + Rust enforceable invariants                                  |
-| Integration with Reasoning      | Often entangled                                     | Strict separation from geometric layer                              |
-| Outcome                         | Safety via restriction                               | Safety via dignity, agency, adaptivity                              |
-</pre>
+| Dimension | Industry Safety Heuristics | Triangle Mutiny Accessibility Architecture |
+|----------|-----------------------------|--------------------------------------------|
+| Core Philosophy | Risk minimization | Dignity, agency, lived experience |
+| Primary Mechanism | Heuristics, filters | Formal invariants |
+| User Agency | Often restricted | Never restricted |
+| Cultural Handling | One-size-fits-all | Culturally adaptive |
+| Trauma Awareness | Trigger filters | Activation/escalation modeling |
+| Intersectionality | Rarely modeled | Intersectional load + holonomy |
+| Epistemic Respect | Often overridden | Survivor epistemics |
+| Failure Mode Handling | Reactive | Proactive + axiomatic |
+| Soft Constraints | Drift into hard | Non-calcifying |
+| Hard Constraints | Global | Non-overreaching |
+| Safety Drift | Not modeled | Drift fields |
+| Adjacency | Keyword-based | Survivor-centered adjacency |
+| Holonomy | Not modeled | Safety + intersectional holonomy |
+| Collapse Conditions | Undefined | Formal collapse surfaces |
+| Developer Guidance | Best practices | Lean + Rust invariants |
+| Integration with Reasoning | Often entangled | Strict separation |
+| Outcome | Restriction | Dignity + agency preservation |
 
 ---
 
-🟪 Lean + Rust Enforcement Architecture
-
-Each accessibility .tex file corresponds to its own Lean and Rust module set:
+🌈🟩 7. Lean + Rust Enforcement Architecture
 
 `
 lean/accessibility/trauma_informed/
@@ -189,36 +178,27 @@ src/accessibility/trauma_informed/
 src/accessibility/dignity_systems/
 `
 
-These modules enforce:
-
-- continuity  
-- drift bounds  
-- operator compatibility  
-- adjacency  
-- holonomy thresholds  
-- collapse surface avoidance  
-- axioms preventing agency loss  
-
 Accessibility enforcement must never import geometric math modules.
 
 ---
 
-🟦 Developer Guidance
+🌈🟦 8. Developer Guidance
 
-- Keep accessibility invariants separate from geometric invariants.  
-- Never restrict user agency in any enforcement logic.  
-- Treat cultural context as adaptive, not prescriptive.  
-- Respect lived experience as a valid epistemic frame.  
-- Use accessibility invariants to constrain AI behavior only.  
-- Maintain strict separation between layers in code and documentation.
+- Keep accessibility invariants separate from geometric invariants  
+- Never restrict user agency  
+- Treat cultural context as adaptive  
+- Respect lived experience as valid epistemics  
+- Constrain AI behavior only  
+- Maintain strict separation between layers  
 
 ---
 
-Status
+🌈🟨 9. Provenance
 
-This note belongs to the accessibility lane.  
-It does not modify or interact with the geometric interpretability layer.
-`
+This Developer Note was produced as part of the accessibility architecture
+expansion for Triangle Mutiny. Color tiles, emoji anchors, and narrative depth
+cues are intentionally preserved for expressive clarity and ND‑friendly
+readability. No geometric interpretability content was modified or referenced.
 
 ---
 
@@ -228,13 +208,12 @@ It does not modify or interact with the geometric interpretability layer.
 ---
 Provenance:
 This Developer Note was generated as part of the accessibility architecture
-expansion for Triangle Mutiny. It integrates stabilized ASCII diagrams, emoji
-anchors, and comparison tables to ensure GitHub rendering accessibility. The
-content is derived from the trauma-informed-systems.tex and
-intersectional-dignity-systems.tex specifications authored by Borealis S.
-Hedling, and reflects the architectural principles established in the
-accessibility lane. No geometric interpretability content was modified or
-referenced in its construction.
+expansion for Triangle Mutiny. The ASCII diagram, color tiles, and expressive
+section headers are preserved exactly to maintain clarity, readability, and
+structural stability under GitHub’s renderer. The content reflects the formal
+principles defined in the trauma-informed and intersectional dignity
+specifications authored by Borealis S. Hedling. No geometric interpretability
+content was modified or referenced during its creation.
 ---
 `
 
