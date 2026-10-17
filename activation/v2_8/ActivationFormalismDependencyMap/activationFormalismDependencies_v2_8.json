@@ -1,0 +1,161 @@
+{
+  "version": "2.8",
+
+  "axioms": [
+    "Axiom_ActivationStability",
+    "Axiom_ActivationSpectral",
+    "Axiom_ActivationCollapse",
+    "Axiom_ActivationDrift",
+    "Axiom_ActivationModal",
+    "Axiom_KernelGeom",
+    "Axiom_KernelProv",
+    "Axiom_KernelSem",
+    "Axiom_KernelAlg"
+  ],
+
+  "definitions": [
+    "Def_Model",
+    "Def_State",
+    "Def_ActivationOp",
+    "Def_ActivationRelation",
+    "Def_ModelOrder",
+    "Def_SemanticLift",
+    "Def_ProvenanceLift",
+    "Def_KernelGeom",
+    "Def_KernelProv",
+    "Def_KernelSem",
+    "Def_KernelAlg"
+  ],
+
+  "lemmas": [
+    {
+      "name": "Lemma_StabilityMonotone",
+      "depends_on": ["Axiom_ActivationStability", "Def_Model", "Def_State"]
+    },
+    {
+      "name": "Lemma_SpectralMonotone",
+      "depends_on": ["Axiom_ActivationSpectral", "Def_Model", "Def_State"]
+    },
+    {
+      "name": "Lemma_CollapseMonotone",
+      "depends_on": ["Axiom_ActivationCollapse", "Def_Model", "Def_State"]
+    },
+    {
+      "name": "Lemma_DriftMonotone",
+      "depends_on": ["Axiom_ActivationDrift", "Def_Model", "Def_State"]
+    },
+    {
+      "name": "Lemma_ModalAdjacency",
+      "depends_on": ["Axiom_ActivationModal", "Def_Model", "Def_State"]
+    },
+    {
+      "name": "Lemma_KernelHierarchy",
+      "depends_on": [
+        "Axiom_KernelGeom",
+        "Axiom_KernelProv",
+        "Axiom_KernelSem",
+        "Axiom_KernelAlg"
+      ]
+    },
+    {
+      "name": "Lemma_RelationReflexive",
+      "depends_on": ["Def_ActivationRelation"]
+    },
+    {
+      "name": "Lemma_RelationSymmetric",
+      "depends_on": ["Def_ActivationRelation"]
+    },
+    {
+      "name": "Lemma_RelationTransitive",
+      "depends_on": ["Def_ActivationRelation"]
+    },
+    {
+      "name": "Lemma_ModelOrderStable",
+      "depends_on": ["Def_ModelOrder", "Lemma_StabilityMonotone"]
+    }
+  ],
+
+  "theorem_schemas": [
+    {
+      "name": "activationOp_preserves_stability",
+      "depends_on": ["Lemma_StabilityMonotone"],
+      "proof_obligation": "PO_StabilityPreservation"
+    },
+    {
+      "name": "activationOp_idempotent",
+      "depends_on": ["Lemma_StabilityMonotone", "Lemma_SpectralMonotone"],
+      "proof_obligation": "PO_Idempotence"
+    },
+    {
+      "name": "activationOp_preserves_kernelGeom",
+      "depends_on": ["Lemma_KernelHierarchy", "Lemma_StabilityMonotone"],
+      "proof_obligation": "PO_KernelGeomPreservation"
+    },
+    {
+      "name": "activationOp_preserves_kernelProv",
+      "depends_on": ["Lemma_KernelHierarchy"],
+      "proof_obligation": "PO_KernelProvPreservation"
+    },
+    {
+      "name": "activationOp_preserves_kernelSem",
+      "depends_on": ["Lemma_KernelHierarchy"],
+      "proof_obligation": "PO_KernelSemPreservation"
+    },
+    {
+      "name": "activationOp_preserves_kernelAlg",
+      "depends_on": ["Lemma_KernelHierarchy"],
+      "proof_obligation": "PO_KernelAlgPreservation"
+    },
+    {
+      "name": "activationRelation_is_reflexive",
+      "depends_on": ["Lemma_RelationReflexive"],
+      "proof_obligation": "PO_RelationReflexive"
+    },
+    {
+      "name": "activationRelation_is_symmetric",
+      "depends_on": ["Lemma_RelationSymmetric"],
+      "proof_obligation": "PO_RelationSymmetric"
+    },
+    {
+      "name": "activationRelation_is_transitive",
+      "depends_on": ["Lemma_RelationTransitive"],
+      "proof_obligation": "PO_RelationTransitive"
+    },
+    {
+      "name": "activationOp_preserves_order",
+      "depends_on": ["Lemma_ModelOrderStable"],
+      "proof_obligation": "PO_OrderPreservation"
+    },
+    {
+      "name": "activationOp_preserves_semanticLift",
+      "depends_on": ["Lemma_ModalAdjacency"],
+      "proof_obligation": "PO_SemanticLiftPreservation"
+    },
+    {
+      "name": "activationOp_preserves_provenanceLift",
+      "depends_on": ["Lemma_SpectralMonotone"],
+      "proof_obligation": "PO_ProvenanceLiftPreservation"
+    }
+  ],
+
+  "kernel_hierarchy": [
+    "KernelGeom",
+    "KernelProv",
+    "KernelSem",
+    "KernelAlg"
+  ],
+
+  "geometric_constraints": [
+    "Geom_StabilityEnvelope_v1_2",
+    "Geom_CollapseSurface_v1_2",
+    "Geom_SpectralContinuity_v1_2",
+    "Geom_ModalAdjacency_v1_2"
+  ],
+
+  "reversible_algebra_constraints": [
+    "Rev_ActivationOpSelfLift",
+    "Rev_IdempotenceUnderSelfState",
+    "Rev_MonotoneOperatorChain",
+    "Rev_NoDoubleActivation"
+  ]
+}
