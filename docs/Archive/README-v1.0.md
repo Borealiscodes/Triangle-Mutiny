@@ -230,3 +230,40 @@ Zenodo. DOI: <to be added>
 
 ---
 
+📜 Archival Provenance Footer — README v1.0
+
+`
+---
+Artifact: README.md (Archived as README-v1.0.md)
+Lane: Documentation • Structural AI • Historical Reference
+
+Reason:
+  README v1.0 reflected the initial conception of Triangle Mutiny’s geometric
+  operator spine, impossibility results, and accessibility explanations. The
+  repository has since expanded to include Lean verification modules, a
+  deterministic reasoning architecture, and planned integration with State
+  Machine v2.2. Archival preserves historical context while enabling a
+  forward-compatible README v1.1.
+
+Archive Path:
+  docs/Archive/README-v1.0.md
+
+Anchors:
+  - TriangleMutiny-Geometry-Spine-v1_0
+  - Collapse-Vector-DeepDive-v1_0
+  - SpectralMismatch-OperatorNotes-v1_0
+  - ModalAdjacency-GraphSpec-v1_0
+  - StabilityEnvelope-Definition-v1_0
+  - DriftTensor-HolonomyNotes-v1_0
+  - DeterministicReasoning-Architecture-v1_0
+  - StateMachine-v22-GovernanceMap-v10
+
+Status: Archived • Non-Activating • Lineage-Preserved
+Maintainer: Borealis S. Hedling
+Location: Dublin, Ireland
+Timestamp: 17 October 2026 — 01:36 IST
+---
+`
+
+---
+
