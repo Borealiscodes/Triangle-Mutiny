@@ -1,0 +1,65 @@
+{
+  "version": "1.6",
+  "phase": "deterministic_runtime_completion",
+  "tasks": {
+    "kernel": {
+      "invariant_evaluation": { "id": "K-INV-01", "done": false },
+      "stability_classification": { "id": "K-STAB-01", "done": false },
+      "collapse_detection": { "id": "K-COL-01", "done": false },
+      "drift_accumulation": { "id": "K-DRIFT-01", "done": false },
+      "modal_adjacency_integration": { "id": "K-MODAL-01", "done": false },
+      "spectral_mismatch_integration": { "id": "K-SPEC-01", "done": false }
+    },
+    "runtime": {
+      "deterministic_transitions": { "id": "R-TRANS-01", "done": false },
+      "invariant_checks": { "id": "R-INV-01", "done": false },
+      "collapse_rejection": { "id": "R-COL-01", "done": false },
+      "provenance_emission": { "id": "R-PROV-01", "done": false },
+      "state_update_logic": { "id": "R-STATE-01", "done": false }
+    },
+    "provenance_shield": {
+      "invariant_reports": { "id": "P-INV-01", "done": false },
+      "collapse_reports": { "id": "P-COL-01", "done": false },
+      "drift_reports": { "id": "P-DRIFT-01", "done": false },
+      "modal_reports": { "id": "P-MODAL-01", "done": false },
+      "spectral_reports": { "id": "P-SPEC-01", "done": false },
+      "stability_reports": { "id": "P-STAB-01", "done": false }
+    },
+    "activation_geometry": {
+      "runtime_completeness": { "id": "A-RUN-01", "done": false },
+      "safety_limits": { "id": "A-SAFE-01", "done": false },
+      "drift_limits": { "id": "A-DRIFT-01", "done": false },
+      "modal_limits": { "id": "A-MODAL-01", "done": false },
+      "spectral_limits": { "id": "A-SPEC-01", "done": false },
+      "collapse_limits": { "id": "A-COL-01", "done": false }
+    }
+  },
+  "dependencies": {
+    "K-INV-01": [],
+    "K-STAB-01": ["K-INV-01"],
+    "K-COL-01": ["K-STAB-01"],
+    "K-DRIFT-01": ["K-STAB-01"],
+    "K-MODAL-01": ["K-INV-01"],
+    "K-SPEC-01": ["K-INV-01"],
+
+    "R-TRANS-01": ["K-INV-01", "K-STAB-01", "K-MODAL-01"],
+    "R-INV-01": ["K-INV-01"],
+    "R-COL-01": ["K-COL-01"],
+    "R-PROV-01": ["R-TRANS-01"],
+    "R-STATE-01": ["R-TRANS-01"],
+
+    "P-INV-01": ["R-INV-01"],
+    "P-COL-01": ["R-COL-01"],
+    "P-DRIFT-01": ["K-DRIFT-01"],
+    "P-MODAL-01": ["K-MODAL-01"],
+    "P-SPEC-01": ["K-SPEC-01"],
+    "P-STAB-01": ["K-STAB-01"],
+
+    "A-RUN-01": ["R-TRANS-01", "R-STATE-01"],
+    "A-SAFE-01": ["P-STAB-01"],
+    "A-DRIFT-01": ["P-DRIFT-01"],
+    "A-MODAL-01": ["P-MODAL-01"],
+    "A-SPEC-01": ["P-SPEC-01"],
+    "A-COL-01": ["P-COL-01"]
+  }
+}
