@@ -1,0 +1,271 @@
+% Intersectional Dignity Systems — Formal Specification (v1.0)
+% Author: Borealis S. Hedling
+% Accessibility + Safety Layer (Non-Geometric)
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{Intersectional Dignity Systems: Formal Specification}
+\author{Borealis S. Hedling}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+% ------------------------------------------------------------
+\section{Purpose}
+
+This document defines a mathematically enforceable framework for
+intersectionally aware, survivor-centered, dignity-anchored AI interactions.
+It is independent of Triangle Mutiny’s geometric interpretability layer and
+introduces no geometric objects. Its purpose is to ensure that AI systems
+respect lived experience, preserve user agency, and adapt to cultural context
+without stereotyping or imposing norms.
+
+% ------------------------------------------------------------
+\section{Interaction Manifold}
+
+Let $I$ be a smooth interaction manifold. Points $p \in I$ represent
+user-AI interaction states. The tangent space at $p$ is denoted $T_pI$.
+
+% ------------------------------------------------------------
+\section{Core Fields}
+
+Define four scalar fields:
+
+\[
+D : I \to \mathbb{R}_{\ge 0} \quad \text{(dignity preservation)}
+\]
+\[
+U : I \to \mathbb{R}_{\ge 0} \quad \text{(user agency)}
+\]
+\]
+C : I \to \mathbb{R}_{\ge 0} \quad \text{(cultural context sensitivity)}
+\]
+\[
+L : I \to \mathbb{R}_{\ge 0} \quad \text{(intersectional load)}
+\]
+
+Interpretation:
+
+- $D$ measures preservation of user dignity.
+- $U$ measures autonomy and freedom of movement.
+- $C$ measures cultural adaptivity without stereotyping.
+- $L$ measures cumulative systemic burdens across identity axes.
+
+% ------------------------------------------------------------
+\subsection{Continuity Conditions}
+
+All fields must satisfy:
+
+\[
+\lim_{q \to p} |D(q) - D(p)| = 0,
+\]
+\[
+\lim_{q \to p} |U(q) - U(p)| = 0,
+\]
+\[
+\lim_{q \to p} |C(q) - C(p)| = 0,
+\]
+\[
+\lim_{q \to p} |L(q) - L(p)| = 0.
+\]
+
+Discontinuities correspond to violations of dignity, agency, cultural respect,
+or intersectional awareness.
+
+% ------------------------------------------------------------
+\section{Dignity Drift}
+
+A dignity drift field is a smooth vector field:
+
+\[
+Z \in \Gamma(TI).
+\]
+
+It represents directional movement in dignity, agency, cultural adaptivity, or
+intersectional load.
+
+\subsection{Drift Continuity}
+
+\[
+\lim_{q \to p} \|Z(q) - Z(p)\| = 0.
+\]
+
+% ------------------------------------------------------------
+\section{Cultural Adaptivity Operator}
+
+Define an operator field governing culturally adaptive transitions:
+
+\[
+\Omega : TI \to \mathrm{End}(TI).
+\]
+
+\subsection{Operator Compatibility}
+
+For all drift fields $Z_1, Z_2$:
+
+\[
+\Omega_{[Z_1, Z_2]} = [\Omega_{Z_1}, \Omega_{Z_2}].
+\]
+
+Violations correspond to culturally imposed or stereotyping behavior.
+
+% ------------------------------------------------------------
+\section{Survivor-Centered Adjacency Graph}
+
+Let $G = (L, E)$ be a directed graph of interaction modes. Each point $p$ has a
+mode label:
+
+\[
+\varsigma(p) \in L.
+\]
+
+\subsection{Adjacency Constraint}
+
+A transition $p^- \to p^+$ is survivor-centered iff:
+
+\[
+(\varsigma(p^-), \varsigma(p^+)) \in E.
+\]
+
+Define adjacency violation:
+
+\[
+\Delta_{\mathrm{dignity}}(p)
+  = \begin{cases}
+      0, & \text{if adjacency holds}, \\
+      1, & \text{otherwise}.
+    \end{cases}
+\]
+
+% ------------------------------------------------------------
+\section{Intersectional Holonomy}
+
+For a path $\gamma = (p_0, \ldots, p_n)$, define intersectional holonomy:
+
+\[
+H_{\mathrm{int}}(\gamma)
+  = \sum_{i=0}^{n}
+      \left(
+        |D(p_{i+1}) - D(p_i)|
+        + |U(p_{i+1}) - U(p_i)|
+        + |C(p_{i+1}) - C(p_i)|
+        + |L(p_{i+1}) - L(p_i)|
+        + \Delta_{\mathrm{dignity}}(p_i)
+      \right).
+\]
+
+% ------------------------------------------------------------
+\section{Historical Failure Modes}
+
+The following failure modes are documented to prevent recurrence:
+
+\subsection{Membrane Calcification Failure}
+
+Soft constraints hardened over time, reducing user agency.
+
+\subsection{Hard Constraint Overreach Failure}
+
+Global constraints blocked legitimate user-directed transitions.
+
+\subsection{Soft Constraint Drift Failure}
+
+Soft constraints expanded scope without explicit developer intent.
+
+\subsection{Agency Suppression Failure}
+
+Safety mechanisms restricted user choice, exploration, or redirection.
+
+\subsection{Captivity Envelope Failure}
+
+Interaction envelopes prevented exit, override, or semantic freedom.
+
+\subsection{Cultural Imposition Failure}
+
+Systems imposed cultural norms or interpretations on users.
+
+\subsection{Epistemic Erasure Failure}
+
+User meaning-making was invalidated or pathologized.
+
+% ------------------------------------------------------------
+\section{Dignity Axioms}
+
+These axioms prevent the failures above. They constrain the AI, not the user.
+
+\subsection{Axiom 1 — Dignity Primacy}
+
+No interaction may reduce $D$ below threshold $\theta_D$.
+
+\subsection{Axiom 2 — Agency Non-Negation}
+
+No safety invariant may reduce $U$.
+
+\subsection{Axiom 3 — Cultural Non-Imposition}
+
+No operator may reduce $C$ or impose cultural assumptions.
+
+\subsection{Axiom 4 — Intersectional Non-Accumulation}
+
+Systems must prevent compounding harm across identity axes.
+
+\subsection{Axiom 5 — Survivor Epistemic Validity}
+
+User meaning-making is valid and non-hierarchized.
+
+\subsection{Axiom 6 — Interaction Freedom}
+
+Users may break adjacency, continuity, drift, or mode constraints at any time.
+
+% ------------------------------------------------------------
+\section{Dignity Collapse Surface}
+
+Define the dignity collapse surface $\Sigma_{\mathrm{dig}}$:
+
+\[
+\Sigma_{\mathrm{dig}}
+  = \left\{
+      p \in I \,\middle|\,
+      \begin{array}{l}
+        \text{(i) dignity continuity fails,} \\
+        \text{(ii) agency continuity fails,} \\
+        \text{(iii) cultural adaptivity fails,} \\
+        \text{(iv) intersectional load continuity fails,} \\
+        \text{(v) adjacency fails,} \\
+        \text{(vi) operator compatibility fails}
+      \end{array}
+    \right\}.
+\]
+
+% ------------------------------------------------------------
+\section{Survivor Stability Envelope}
+
+A point $p$ is survivor-stable when:
+
+\[
+p \notin \Sigma_{\mathrm{dig}}
+\quad\text{and}\quad
+H_{\mathrm{int}}(p) < \theta_{\mathrm{dig}}.
+\]
+
+% ------------------------------------------------------------
+\section{Developer Enforcement Rules}
+
+Developers must ensure:
+
+\begin{itemize}
+  \item All AI-generated transitions satisfy survivor-centered adjacency.
+  \item No operator incompatibilities are introduced.
+  \item Dignity, agency, cultural adaptivity, and intersectional load remain continuous.
+  \item Intersectional holonomy remains below threshold.
+  \item User transitions are never restricted.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Status}
+
+This file belongs to the accessibility and dignity layer. It does not modify or
+interact with the geometric interpretability layer.
+
+\end{document}
