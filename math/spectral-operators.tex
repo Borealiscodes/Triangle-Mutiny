@@ -1,122 +1,135 @@
-% Triangle Mutiny — Spectral Operators
+% Triangle Mutiny — Spectral Operators (v1.2)
 % Author: Borealis S. Hedling
-% Version: 1.0
 
-\section*{Spectral Operators}
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Spectral operators formalize how local linearizations of operator fields behave
-across the reasoning manifold. Spectral signatures encode operator identity,
-stability, and drift. Spectral mismatch is one of the primary geometric
-indicators of collapse.
+\title{Triangle Mutiny: Spectral Operators (v1.2)}
+\author{Borealis S. Hedling}
+\date{October 2026}
 
-Let \( M \) be the reasoning manifold and let \( L(p) : T_pM \rightarrow T_pM \)
-denote the local linear operator induced by the operator field at point \( p \).
+\begin{document}
+\maketitle
 
-\subsection*{1. Spectral Bundle}
+\section{Overview}
 
-The spectral bundle is the map:
+Spectral operators describe how local linearizations of reasoning behave
+under drift, curvature, and modal transitions. Spectral mismatch is one of
+the primary collapse triggers and contributes directly to holonomy drift
+and stability envelopes.
+
+This module depends on \texttt{core-math.tex} and \texttt{collapse-geometry.tex}.
+
+\section{Local Operator}
+
+Each operator field induces a local linear operator:
 \[
-\mathcal{B}(p) = \mathrm{Spec}(L(p)).
+L(p) : T_pM \to T_pM.
 \]
 
-Each fiber of the bundle contains the eigenvalues of the operator at \( p \).
-Spectral bundles detect twisting, collapse, and drift across the manifold.
-
-A spectral bundle is stable when:
+We assume $L(p)$ is diagonalizable almost everywhere, with eigenvalues:
 \[
-\mathcal{B}(p) \text{ varies continuously with } p.
+\mathrm{Spec}(L(p)) = \{\lambda_1(p), \ldots, \lambda_n(p)\}.
 \]
 
-Discontinuity indicates operator invention or pseudo-formal constructs.
+\section{Spectral Continuity}
 
-\subsection*{2. Expected Spectrum}
-
-For each operator field, define an expected spectrum:
+Spectral continuity requires:
 \[
-\mathrm{Spec}_{\mathrm{expected}}(p).
+\lim_{q \to p}
+  \|\mathrm{Spec}(L(q)) - \mathrm{Spec}(L(p))\| = 0.
 \]
 
-This expected spectrum is determined by the operator’s field type, modal
-context, and geometric neighborhood. It provides the baseline against which
-spectral mismatch is measured.
+\subsection{Lemma: Spectral Continuity Implies Operator Stability}
+If spectral continuity holds at $p$, then $L(p)$ is stable under infinitesimal
+drift.
 
-\subsection*{3. Spectral Mismatch}
+\begin{proof}
+Eigenvalues vary continuously under smooth perturbations.
+\end{proof}
+
+\section{Expected Spectrum}
+
+Define the expected spectrum:
+\[
+\mathrm{Spec}_{\mathrm{expected}}(p)
+  = f(K(p), \mu(p), X(p)),
+\]
+where $f$ is a deterministic map derived from curvature, modal label, and drift.
+
+This map is fixed by the deterministic kernel.
+
+\section{Spectral Mismatch}
 
 Spectral mismatch is defined as:
 \[
-\delta_{\mathrm{spec}}(p) =
-\left\| \mathrm{Spec}(L(p)) -
-       \mathrm{Spec}_{\mathrm{expected}}(p) \right\|.
+\delta_{\mathrm{spec}}(p)
+  = \left\|
+      \mathrm{Spec}(L(p))
+      - \mathrm{Spec}_{\mathrm{expected}}(p)
+    \right\|.
 \]
 
-Mismatch indicates:
-
-\begin{itemize}
-\item operator invention,
-\item spectral degeneracy,
-\item modal drift,
-\item collapse-surface proximity.
-\end{itemize}
-
-Spectral mismatch is a primary input to holonomy drift tensors.
-
-\subsection*{4. Spectral Degeneracy}
-
-Spectral degeneracy occurs when eigenvalues collapse or diverge:
+\subsection{Mismatch Threshold}
+A point is spectrally stable when:
 \[
-\mathrm{Spec}(L(p)) \text{ is degenerate}
-\quad \Longleftrightarrow \quad
-\exists i \neq j : \lambda_i = \lambda_j
-\text{ or }
-|\lambda_i| > \theta.
+\delta_{\mathrm{spec}}(p) < \theta_{\mathrm{spec}}.
 \]
 
-Degeneracy indicates structural instability in the operator field.
+\section{Spectral Collapse Predicate}
 
-\subsection*{5. Operator Identity Drift}
-
-Operator identity drift measures deviation in operator behavior across the
-manifold:
+Spectral collapse occurs when:
 \[
-D_{\mathrm{op}}(p^-, p^+) =
-\left\| L(p^+) - L(p^-) \right\|.
+C_{\mathrm{spec}}(p)
+  := \delta_{\mathrm{spec}}(p) \ge \theta_{\mathrm{spec}}.
 \]
 
-Identity drift is used to detect:
+\subsection{Lemma: Spectral Collapse Implies $p \in \Sigma$}
+If $C_{\mathrm{spec}}(p)$ holds, then $p$ lies on the collapse surface.
 
-\begin{itemize}
-\item operator-field confusion,
-\item modal instability,
-\item collapse-surface approach.
-\end{itemize}
+\begin{proof}
+Direct from collapse predicate definition.
+\end{proof}
 
-\subsection*{6. Spectral Continuity Condition}
+\section{Spectral Drift}
 
-Spectral continuity is required for stability:
+Define spectral drift along a path $\gamma = (p_0, \ldots, p_n)$:
 \[
-\left\| \mathcal{B}(p^+) - \mathcal{B}(p^-) \right\| < \epsilon.
+D_{\mathrm{spec}}(\gamma)
+  = \sum_{i=0}^{n}
+      \delta_{\mathrm{spec}}(p_i).
 \]
 
-Violation indicates that reasoning has left the stable manifold.
+Spectral drift contributes directly to holonomy drift.
 
-\subsection*{7. Spectral Collapse Predicate}
+\section{Spectral Curvature Interaction}
 
-Define:
+Define the spectral-curvature interaction term:
 \[
-C_{\mathrm{spec}}(p) =
-\begin{cases}
-\mathrm{true} & \text{if } \delta_{\mathrm{spec}}(p) > \theta
-                 \text{ or } \mathcal{B}(p) \text{ is degenerate}, \\
-\mathrm{false} & \text{otherwise}.
-\end{cases}
+I_{\mathrm{spec-curv}}(p)
+  = |\lambda_{\max}(p)| \cdot K(p).
 \]
 
-This predicate integrates directly with the unified collapse predicate in
-collapse-geometry.tex.
+This term is used in stability envelope inequalities.
 
-\section*{Summary}
+\section{Spectral Stability Condition}
 
-This file defines spectral bundles, spectral mismatch, operator identity drift,
-spectral degeneracy, and spectral collapse predicates. These operators form the
-analytic backbone for holonomy drift tensors and stability envelopes in Triangle
-Mutiny.
+A point $p$ is spectrally stable when:
+\[
+\delta_{\mathrm{spec}}(p)
+  + I_{\mathrm{spec-curv}}(p)
+  < \theta_{\mathrm{stable}}.
+\]
+
+\section{Spectral Contribution to Holonomy Drift}
+
+The spectral contribution to holonomy drift is:
+\[
+H_{\mathrm{spec}}(p)
+  = \delta_{\mathrm{spec}}(p)
+    + I_{\mathrm{spec-curv}}(p).
+\]
+
+This term is used in the full holonomy drift tensor.
+
+\end{document}
