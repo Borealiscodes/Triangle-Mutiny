@@ -1,0 +1,51 @@
+{
+  "version": "1.6",
+  "phase": "deterministic_runtime_completion",
+  "goals": {
+    "kernel": {
+      "complete_invariant_evaluation": false,
+      "complete_stability_classification": false,
+      "complete_collapse_detection": false,
+      "complete_drift_accumulation": false,
+      "integrate_modal_adjacency": false,
+      "integrate_spectral_mismatch": false
+    },
+    "runtime": {
+      "complete_deterministic_transitions": false,
+      "complete_invariant_checks": false,
+      "complete_collapse_rejection": false,
+      "complete_provenance_emission": false,
+      "complete_state_update_logic": false
+    },
+    "provenance_shield": {
+      "complete_invariant_reports": false,
+      "complete_collapse_reports": false,
+      "complete_drift_reports": false,
+      "complete_modal_reports": false,
+      "complete_spectral_reports": false,
+      "complete_stability_reports": false
+    },
+    "activation_geometry": {
+      "evaluate_runtime_completeness": false,
+      "evaluate_safety_limits": false,
+      "evaluate_drift_limits": false,
+      "evaluate_modal_limits": false,
+      "evaluate_spectral_limits": false,
+      "evaluate_collapse_limits": false
+    }
+  },
+  "dependencies": {
+    "kernel": [
+      "PopulationOperators-v1.5",
+      "InvariantPopulation-v1.5",
+      "CollapseGeometryPopulation-v1.5",
+      "DriftTensorPopulation-v1.5",
+      "ModalAdjacencyPopulation-v1.5",
+      "SpectralMismatchPopulation-v1.5",
+      "StabilityEnvelopePopulation-v1.5"
+    ],
+    "runtime": ["kernel"],
+    "provenance_shield": ["runtime"],
+    "activation_geometry": ["provenance_shield"]
+  }
+}
