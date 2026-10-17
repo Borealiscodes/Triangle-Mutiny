@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{Triangle Mutiny: Activation Modeling v2.5}
+\author{Borealis S. Hedling}
+\date{17 October 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Overview}
+
+Activation Modeling v2.5 provides a mathematical structure for representing
+activation conditions without performing activation. This layer consumes
+symbolic activation states (v2.4), simulated activation paths (v2.3),
+transition legality (v2.2), activation surfaces (v2.1), and activation logic
+(v2.0). The modeling layer is deterministic, geometric, and non-activating.
+
+\section*{Symbolic Activation State}
+
+We define a symbolic activation state as a tuple of geometric surface
+conditions:
+
+\[
+S = (s_{\text{stable}}, s_{\text{spectral}}, s_{\text{collapse}},
+     s_{\text{drift}}, s_{\text{modal}})
+\]
+
+where each component is a Boolean indicating whether the corresponding
+activation surface is clear.
+
+\section*{Activation Model}
+
+The activation model incorporates symbolic surface conditions together with
+simulation and representation validity:
+
+\[
+M = (s_{\text{stable}}, s_{\text{spectral}}, s_{\text{collapse}},
+     s_{\text{drift}}, s_{\text{modal}},
+     v_{\text{sim}}, v_{\text{repr}})
+\]
+
+where:
+
+\[
+v_{\text{sim}} = \text{activationSimulationKernel}
+\]
+\[
+v_{\text{repr}} = \text{activationRepresentationKernel}
+\]
+
+\section*{Model Invariants}
+
+Activation modeling requires satisfaction of the core geometric invariants:
+
+\[
+I(M) = s_{\text{stable}} \land s_{\text{spectral}} \land s_{\text{collapse}}
+\]
+
+These invariants correspond to stability, spectral safety, and collapse
+geometry constraints.
+
+\section*{Model Trajectory}
+
+A model trajectory is defined as a sequence of activation models:
+
+\[
+T = [M_0, M_1, M_2]
+\]
+
+In v2.5, this trajectory is deterministic and constant:
+
+\[
+M_0 = M_1 = M_2 = M
+\]
+
+\section*{Model Outcome}
+
+The model outcome is determined by invariant satisfaction:
+
+\[
+\text{Outcome}(M) =
+\begin{cases}
+\text{VALID} & \text{if } I(M) = \text{true} \\
+\text{INVALID} & \text{otherwise}
+\end{cases}
+\]
+
+No activation is performed.
+
+\section*{Model Kernel}
+
+The activation modeling kernel combines invariants, simulation validity, and
+representation validity:
+
+\[
+K(M) = I(M) \land v_{\text{sim}} \land v_{\text{repr}}
+\]
+
+This kernel determines whether the activation model is structurally coherent
+without enabling activation.
+
+\section*{Summary}
+
+Activation Modeling v2.5 provides:
+
+\begin{itemize}
+\item symbolic activation state representation,
+\item mathematical activation model definition,
+\item invariant checking,
+\item deterministic model trajectories,
+\item model outcome evaluation,
+\item modeling kernel structure.
+\end{itemize}
+
+This layer prepares the system for Activation Semantics v2.6, where activation
+conditions will be semantically described without performing activation.
+
+\end{document}
