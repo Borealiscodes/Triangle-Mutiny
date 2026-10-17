@@ -1,129 +1,179 @@
-% Triangle Mutiny — Core Mathematical Framework
+% Triangle Mutiny — Core Mathematical Framework (v1.2)
 % Author: Borealis S. Hedling
-% Version: 1.0
 
-\section*{Core Mathematical Framework}
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
 
-Triangle Mutiny begins with a minimal set of geometric primitives that define
-the structure of reasoning manifolds, operator interactions, and drift behavior.
-These primitives form the backbone for collapse geometry, spectral mismatch,
-modal adjacency, and stability envelopes.
+\title{Triangle Mutiny: Core Mathematical Framework (v1.2)}
+\author{Borealis S. Hedling}
+\date{October 2026}
 
-\subsection*{1. Reasoning Manifold}
+\begin{document}
+\maketitle
 
-Let \( M \) denote the latent reasoning manifold. Points \( p \in M \) represent
-semantic or operator states. No assumptions are made about global topology;
-only local geometric structure is required.
+\section{Reasoning Manifold}
 
-\subsection*{2. Curvature Magnitude}
+Let $M$ be a smooth reasoning manifold. Points $p \in M$ represent semantic
+states or operator configurations. We assume $M$ is locally Euclidean but make
+no global topological assumptions.
 
-Each point \( p \in M \) has an associated curvature magnitude:
+The tangent space at $p$ is denoted $T_pM$.
+
+\section{Curvature Field}
+
+Curvature is a scalar field
 \[
-K : M \rightarrow \mathbb{R}_{\ge 0}.
+K : M \to \mathbb{R}_{\ge 0},
+\]
+representing the bending intensity of reasoning trajectories.
+
+\subsection{Curvature Continuity}
+Curvature must satisfy local continuity:
+\[
+\lim_{q \to p} |K(q) - K(p)| = 0.
+\]
+Discontinuities contribute directly to collapse geometry.
+
+\section{Similarity}
+
+For $A, B \in T_pM$, define similarity:
+\[
+\Phi(A,B)
+  = \frac{\langle A, B \rangle}{\|A\| \cdot \|B\|}.
 \]
 
-Curvature measures the bending of reasoning trajectories. High curvature
-indicates sharp conceptual turns; low curvature indicates stable reasoning flow.
-
-\subsection*{3. Similarity Relation}
-
-For reasoning components \( A, B \in T_pM \), define the similarity relation:
+\subsection{Similarity Bounds}
+Similarity satisfies:
 \[
-\Phi(A,B) = \frac{\langle A, B \rangle}{\|A\| \cdot \|B\|}.
+-1 \le \Phi(A,B) \le 1.
 \]
 
-This cosine-style similarity determines alignment between components and is
-used in curvature composition and spectral mismatch.
+Negative similarity contributes to curvature instability.
 
-\subsection*{4. Drift Fields}
+\section{Drift Fields}
 
 A drift field is a smooth vector field:
 \[
 X \in \Gamma(TM).
 \]
 
-Drift fields describe directional tendencies of reasoning. They are used to
-define Lie brackets, holonomy drift, and stability envelopes.
+Drift represents directional tendencies of reasoning.
 
-\subsection*{5. Operator Fields}
-
-An operator field is a map:
+\subsection{Drift Continuity}
+Drift must satisfy:
 \[
-\nabla : TM \rightarrow \mathrm{End}(TM).
+\lim_{q \to p} \|X(q) - X(p)\| = 0.
 \]
 
-Operator fields encode how drift fields interact and transform. They define
-the structural rules of motion within the manifold.
+\section{Operator Fields}
 
-\subsection*{6. Lie Bracket}
-
-For drift fields \( X, Y \), the Lie bracket is:
+An operator field is a smooth map:
 \[
-[X, Y] = XY - YX.
+\nabla : TM \to \mathrm{End}(TM).
 \]
 
-The Lie bracket measures non-commutativity of drift flows and is central to
-detecting operator collapse and Jacobi identity violations.
-
-\subsection*{7. Curvature Composition (Constructive Form)}
-
-Curvature cannot be mixed linearly. The only stable composition is:
+\subsection{Covariant Compatibility}
+For all drift fields $X, Y$:
 \[
-K_{A \oplus B} =
-\sqrt{K_A^2 + K_B^2 + 2 K_A K_B \Phi(A,B)}.
+\nabla_{[X,Y]} = [\nabla_X, \nabla_Y].
 \]
 
-This operator is used throughout Triangle Mutiny to prevent curvature
-discontinuities and collapse surfaces.
+This identity prevents operator collapse.
 
-\subsection*{8. Spectral Structure}
+\section{Lie Bracket}
 
-Each operator field induces a local linear operator:
+The Lie bracket of drift fields is:
 \[
-L(p) : T_pM \rightarrow T_pM.
+[X,Y] = XY - YX.
 \]
 
-The spectrum of \( L(p) \) is:
+\subsection{Jacobi Identity}
+The Jacobi identity must hold:
 \[
-\mathrm{Spec}(L(p)) = \{\lambda_1, \ldots, \lambda_n\}.
+[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.
 \]
 
-Spectral signatures are used to detect mismatch, drift, and collapse.
+Violations correspond to drift-induced collapse.
 
-\subsection*{9. Modal Labeling}
+\section{Curvature Composition}
 
-Each point \( p \in M \) has a modal label:
+Curvature composition is defined by:
 \[
-\mu(p) \in L,
-\]
-where \( L \) is a finite set of semantic modes. Modal adjacency constraints
-are defined in a separate module.
-
-\subsection*{10. Holonomy Drift (Primitive Form)}
-
-Given a path \( \gamma \), define primitive holonomy drift:
-\[
-H(\gamma) = \sum_{i} \Delta_{\mathrm{spec}}(p_i)
-           + \Delta_{\mathrm{curv}}(p_i)
-           + \Delta_{\mathrm{modal}}(p_i).
+K_{A \oplus B}
+  = \sqrt{K_A^2 + K_B^2 + 2 K_A K_B \Phi(A,B)}.
 \]
 
-This primitive form is refined in the stability-envelope module.
-
-\subsection*{11. Stability Primitives}
-
-A point is stable when:
+\subsection{Stability Condition}
+Curvature composition is stable iff:
 \[
-K(p) \text{ is continuous}, \quad
-\mathrm{Spec}(L(p)) \text{ is bounded}, \quad
-\mu(p) \text{ respects adjacency}.
+\Phi(A,B) \ge -1.
 \]
 
-These primitives form the basis of the full stability envelope.
+\section{Spectral Structure}
 
-\section*{Summary}
+Each operator field induces a linear operator:
+\[
+L(p) : T_pM \to T_pM.
+\]
 
-This file defines the minimal geometric objects required for all downstream
-Triangle Mutiny modules. No collapse geometry, spectral mismatch, modal
-adjacency, or stability envelopes are defined here; those appear in their
-respective files and depend on the primitives introduced above.
+\subsection{Spectral Continuity}
+Spectrum must vary continuously:
+\[
+\lim_{q \to p}
+  \|\mathrm{Spec}(L(q)) - \mathrm{Spec}(L(p))\| = 0.
+\]
+
+\section{Spectral Mismatch}
+
+Define spectral mismatch:
+\[
+\delta_{\mathrm{spec}}(p)
+  = \left\| \mathrm{Spec}(L(p))
+           - \mathrm{Spec}_{\mathrm{expected}}(p)
+    \right\|.
+\]
+
+\subsection{Mismatch Bound}
+Mismatch must satisfy:
+\[
+\delta_{\mathrm{spec}}(p) < \theta_{\mathrm{spec}}.
+\]
+
+\section{Modal Structure}
+
+Let $G = (L, E)$ be a directed modal graph. Each point $p$ has a modal label:
+\[
+\mu(p) \in L.
+\]
+
+\subsection{Adjacency Constraint}
+A transition $p^- \to p^+$ is valid iff:
+\[
+(\mu(p^-), \mu(p^+)) \in E.
+\]
+
+\section{Holonomy Drift}
+
+Define holonomy drift along a path $\gamma = (p_0, \ldots, p_n)$:
+\[
+H(\gamma)
+  = \sum_{i=0}^{n}
+      \left(
+        |K(p_{i+1}) - K(p_i)|
+        + \delta_{\mathrm{spec}}(p_i)
+        + \Delta_{\mathrm{modal}}(p_i)
+      \right).
+\]
+
+\section{Stability Envelope}
+
+A point $p$ is stable when:
+\[
+p \notin \Sigma
+\quad\text{and}\quad
+\|H(p)\| < \theta.
+\]
+
+Here $\Sigma$ is the collapse surface defined in the next module.
+
+\end{document}
