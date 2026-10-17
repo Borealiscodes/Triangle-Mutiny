@@ -1,39 +1,36 @@
-% Triangle Mutiny — Core Mathematical Framework (v1.2)
+% Triangle Mutiny — Core Mathematical Framework (v1.3)
 % Author: Borealis S. Hedling
 
 \documentclass[11pt]{article}
 \usepackage{amsmath, amssymb, amsthm}
 
-\title{Triangle Mutiny: Core Mathematical Framework (v1.2)}
+\title{Triangle Mutiny: Core Mathematical Framework (v1.3)}
 \author{Borealis S. Hedling}
 \date{October 2026}
 
 \begin{document}
 \maketitle
 
+% ------------------------------------------------------------
 \section{Reasoning Manifold}
 
 Let $M$ be a smooth reasoning manifold. Points $p \in M$ represent semantic
-states or operator configurations. We assume $M$ is locally Euclidean but make
-no global topological assumptions.
+states or operator configurations. The tangent space at $p$ is denoted $T_pM$.
 
-The tangent space at $p$ is denoted $T_pM$.
-
+% ------------------------------------------------------------
 \section{Curvature Field}
 
 Curvature is a scalar field
 \[
-K : M \to \mathbb{R}_{\ge 0},
+K : M \to \mathbb{R}_{\ge 0}.
 \]
-representing the bending intensity of reasoning trajectories.
 
 \subsection{Curvature Continuity}
-Curvature must satisfy local continuity:
 \[
 \lim_{q \to p} |K(q) - K(p)| = 0.
 \]
-Discontinuities contribute directly to collapse geometry.
 
+% ------------------------------------------------------------
 \section{Similarity}
 
 For $A, B \in T_pM$, define similarity:
@@ -43,13 +40,11 @@ For $A, B \in T_pM$, define similarity:
 \]
 
 \subsection{Similarity Bounds}
-Similarity satisfies:
 \[
 -1 \le \Phi(A,B) \le 1.
 \]
 
-Negative similarity contributes to curvature instability.
-
+% ------------------------------------------------------------
 \section{Drift Fields}
 
 A drift field is a smooth vector field:
@@ -57,14 +52,12 @@ A drift field is a smooth vector field:
 X \in \Gamma(TM).
 \]
 
-Drift represents directional tendencies of reasoning.
-
 \subsection{Drift Continuity}
-Drift must satisfy:
 \[
 \lim_{q \to p} \|X(q) - X(p)\| = 0.
 \]
 
+% ------------------------------------------------------------
 \section{Operator Fields}
 
 An operator field is a smooth map:
@@ -78,8 +71,7 @@ For all drift fields $X, Y$:
 \nabla_{[X,Y]} = [\nabla_X, \nabla_Y].
 \]
 
-This identity prevents operator collapse.
-
+% ------------------------------------------------------------
 \section{Lie Bracket}
 
 The Lie bracket of drift fields is:
@@ -88,13 +80,11 @@ The Lie bracket of drift fields is:
 \]
 
 \subsection{Jacobi Identity}
-The Jacobi identity must hold:
 \[
 [X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.
 \]
 
-Violations correspond to drift-induced collapse.
-
+% ------------------------------------------------------------
 \section{Curvature Composition}
 
 Curvature composition is defined by:
@@ -104,11 +94,11 @@ K_{A \oplus B}
 \]
 
 \subsection{Stability Condition}
-Curvature composition is stable iff:
 \[
 \Phi(A,B) \ge -1.
 \]
 
+% ------------------------------------------------------------
 \section{Spectral Structure}
 
 Each operator field induces a linear operator:
@@ -117,13 +107,15 @@ L(p) : T_pM \to T_pM.
 \]
 
 \subsection{Spectral Continuity}
-Spectrum must vary continuously:
 \[
 \lim_{q \to p}
   \|\mathrm{Spec}(L(q)) - \mathrm{Spec}(L(p))\| = 0.
 \]
 
+% ------------------------------------------------------------
 \section{Spectral Mismatch}
+
+Define expected spectrum $\mathrm{Spec}_{\mathrm{expected}}(p)$.
 
 Define spectral mismatch:
 \[
@@ -134,11 +126,11 @@ Define spectral mismatch:
 \]
 
 \subsection{Mismatch Bound}
-Mismatch must satisfy:
 \[
 \delta_{\mathrm{spec}}(p) < \theta_{\mathrm{spec}}.
 \]
 
+% ------------------------------------------------------------
 \section{Modal Structure}
 
 Let $G = (L, E)$ be a directed modal graph. Each point $p$ has a modal label:
@@ -152,9 +144,19 @@ A transition $p^- \to p^+$ is valid iff:
 (\mu(p^-), \mu(p^+)) \in E.
 \]
 
+Define modal discontinuity:
+\[
+\Delta_{\mathrm{modal}}(p)
+  = \begin{cases}
+      0, & \text{if adjacency holds}, \\
+      1, & \text{otherwise}.
+    \end{cases}
+\]
+
+% ------------------------------------------------------------
 \section{Holonomy Drift}
 
-Define holonomy drift along a path $\gamma = (p_0, \ldots, p_n)$:
+For a path $\gamma = (p_0, \ldots, p_n)$, define holonomy drift:
 \[
 H(\gamma)
   = \sum_{i=0}^{n}
@@ -165,15 +167,51 @@ H(\gamma)
       \right).
 \]
 
+% ------------------------------------------------------------
+\section{Collapse Surface}
+
+Define the collapse surface $\Sigma$ as the set of points where at least one
+canonical invariant fails:
+\[
+\Sigma
+  = \left\{
+      p \in M \,\middle|\,
+      \begin{array}{l}
+        \text{(i) curvature continuity fails,} \\
+        \text{(ii) spectral continuity fails,} \\
+        \text{(iii) modal adjacency fails,} \\
+        \text{(iv) operator compatibility fails}
+      \end{array}
+    \right\}.
+\]
+
+% ------------------------------------------------------------
 \section{Stability Envelope}
 
 A point $p$ is stable when:
 \[
 p \notin \Sigma
 \quad\text{and}\quad
-\|H(p)\| < \theta.
+H(p) < \theta.
 \]
 
-Here $\Sigma$ is the collapse surface defined in the next module.
+% ------------------------------------------------------------
+\section{Structural Anchors}
+
+A structural anchor is a declared mathematical object whose invariants and
+interfaces are fixed prior to full definition. Anchors ensure reproducible
+expansion of future modules.
+
+% ------------------------------------------------------------
+\section{Container-First Invariants}
+
+Each module declares its container before defining its internal mathematics.
+A container specifies:
+\[
+\text{(i) object type,} \quad
+\text{(ii) invariants,} \quad
+\text{(iii) altitude,} \quad
+\text{(iv) compatibility constraints.}
+\]
 
 \end{document}
