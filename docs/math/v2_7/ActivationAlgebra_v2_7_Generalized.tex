@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\title{Triangle Mutiny: Activation Algebra v2.7 (Generalized Foundations)}
+\author{Borealis S. Hedling}
+\date{17 October 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Overview}
+
+This document provides the generalized algebraic foundations required for
+Activation Formalism v2.8. It extends the completed algebra of v2.7 by adding
+explicit domain declarations, operator typing, relation typing, bundle typing,
+kernel hierarchy, interaction laws, semantic and provenance lifting schemas,
+bundle composition, and the definition of the activation algebra object
+$\mathfrak{A}$.
+
+\section*{Algebraic Domains}
+
+Define the following domains:
+
+\[
+\mathcal{M} = \text{Activation Models}
+\]
+\[
+\mathcal{S} = \text{Symbolic Activation States}
+\]
+\[
+\mathcal{B} = \text{Activation Bundles}
+\]
+\[
+\mathcal{K} = \text{Activation Kernels}
+\]
+
+These domains form the basis of the activation algebra.
+
+\section*{Operator Typing}
+
+Define the activation operator:
+
+\[
+\mathcal{A} : \mathcal{M} \times \mathcal{S} \to \mathcal{M}
+\]
+
+\[
+\mathcal{A} \in \text{End}(\mathcal{M})
+\]
+
+\section*{Relation Typing}
+
+Define the activation relation:
+
+\[
+R : \mathcal{M} \times \mathcal{M} \to \mathbf{Bool}
+\]
+
+\[
+R \subseteq \mathcal{M} \times \mathcal{M}
+\]
+
+\section*{Bundle Typing}
+
+Define activation bundles:
+
+\[
+\mathcal{B} = \mathcal{A} \times R
+\]
+
+\[
+\mathcal{B} \in \mathcal{A} \times R
+\]
+
+\section*{Kernel Hierarchy}
+
+Define kernel hierarchy:
+
+\[
+K_{\text{geom}} \subseteq K_{\text{prov}} \subseteq K_{\text{sem}} \subseteq K_{\text{alg}}
+\]
+
+where:
+
+\[
+K_{\text{geom}}(M) = I_{\text{geom}}(M)
+\]
+\[
+K_{\text{prov}}(M) = I_{\text{geom}}(M) \land I_{\text{prov}}(M)
+\]
+\[
+K_{\text{sem}}(M) = K_{\text{prov}}(M) \land I_{\text{sem}}(M)
+\]
+\[
+K_{\text{alg}}(M) = K_{\text{sem}}(M)
+\]
+
+\section*{General Interaction Laws}
+
+\subsection*{Operator-Ordering Interaction}
+
+\[
+M_1 \preceq M_2 \Rightarrow
+\mathcal{A}(M_1, S) \preceq \mathcal{A}(M_2, S)
+\]
+
+\subsection*{Relation-Operator Interaction}
+
+\[
+R(M_1, M_2) \Rightarrow
+R(\mathcal{A}(M_1, S), \mathcal{A}(M_2, S))
+\]
+
+\subsection*{Kernel-Operator Interaction}
+
+\[
+K_{\text{alg}}(M) \Rightarrow K_{\text{alg}}(\mathcal{A}(M, S))
+\]
+
+\section*{Semantic Lifting Schema}
+
+Define semantic lifting:
+
+\[
+\mathcal{L}_{\text{sem}} : \mathcal{M} \to \Sigma
+\]
+
+where $\Sigma$ is the semantic domain.
+
+\[
+\mathcal{L}_{\text{sem}}(\mathcal{A}(M, S)) = \mathcal{L}_{\text{sem}}(M)
+\]
+
+\section*{Provenance Lifting Schema}
+
+Define provenance lifting:
+
+\[
+\mathcal{L}_{\text{prov}} : \mathcal{M} \to \Pi
+\]
+
+where $\Pi$ is the provenance domain.
+
+\[
+\mathcal{L}_{\text{prov}}(\mathcal{A}(M, S)) = \mathcal{L}_{\text{prov}}(M)
+\]
+
+\section*{Bundle Composition}
+
+Define bundle composition:
+
+\[
+\mathcal{B}_1 \circ \mathcal{B}_2 =
+(\mathcal{A}_1 \circ \mathcal{A}_2,\ R_1 \circ R_2)
+\]
+
+Composition is associative:
+
+\[
+(\mathcal{B}_1 \circ \mathcal{B}_2) \circ \mathcal{B}_3
+=
+\mathcal{B}_1 \circ (\mathcal{B}_2 \circ \mathcal{B}_3)
+\]
+
+\section*{Activation Algebra Object}
+
+Define the activation algebra:
+
+\[
+\mathfrak{A} =
+(\mathcal{M}, \mathcal{S}, \mathcal{A}, R, \preceq, \mathcal{B}, \mathcal{K},
+ \mathcal{L}_{\text{sem}}, \mathcal{L}_{\text{prov}})
+\]
+
+This object is the foundation for the axioms introduced in v2.8.
+
+\section*{Summary}
+
+This generalized foundation provides:
+
+\begin{itemize}
+\item explicit algebraic domains,
+\item operator, relation, and bundle typing,
+\item kernel hierarchy,
+\item general interaction laws,
+\item semantic lifting schema,
+\item provenance lifting schema,
+\item bundle composition,
+\item definition of the activation algebra object $\mathfrak{A}$.
+\end{itemize}
+
+These structures are required for the axiomatic activation formalism of v2.8.
+
+\end{document}
