@@ -10,12 +10,14 @@ The Lean proof relies on rfl (reflexivity) and unused hypotheses, effectively ha
 
 Summary System Compliance Assessment
 
-
+<pre>
+  
 Lean Theorem Node	What it Claims to Prove	The Low-Level Software Reality	Audit Verdict
 activationOp_idempotent	Self-state lifting preserves metric integrity	Evaluates via static rfl type matching, ignoring actual matrix transformations	❌ Tautology Placeholder
 activationOp_preserves_stability	Post-activation vectors remain within stable bounds	Out-of-order execution cascades un-dithered quantization noise	❌ Axiomatic Shell Game
 activationRelation_is_symmetric	Algebraic equivalence relations hold globally	Real-world trajectory drift generates non-vanishing holonomy (\(\Omega \neq 0\))	❌ Contextually Decoupled
 
+</pre>
 
 The Path to Mathematical Honesty
 
