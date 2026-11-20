@@ -64,3 +64,19 @@ To translate the audited principles into verifiable code (`node --test`), any ac
 * **Status:** Verified Architectural Audit (`Triangle-Mutiny/accessibility/devnotes` • Non-Activating Specification)  
 * **Author & License:** Borealis Serenity Hedling (`NDH-RESEARCH-PILOT` • County Dublin, Ireland) • MIT License  
 * **DCO Sign-off:** `Signed-off-by: Borealis Serenity Hedling <chguard-sentinel@vaked.dev>`
+
+* ---
+
+## 6. Addendum (v1.1): Descriptive Audio, Braille Displays, Adaptive Controllers & Ternary Haptics (`anima_esoteric_mirror` Bridge)
+
+Expanding into non-visual gameplay and tactile output requires mapping `Ledger 2` state onto four concrete assistive hardware and Web API channels without breaking `Ledger 1` determinism:
+
+1. **Descriptive Audio & Screen-Reader Narration (`aria-live` + `speechSynthesis`):**
+   * Every scene transition or target query emits a concise, rate-limited `aria-live="polite"` text string (e.g., `"Guardian Beacon: ahead-left, proximity 72%."`) readable by NVDA, JAWS, VoiceOver, and TalkBack.
+2. **RNIB-Style Audio-First Spatial Signposting (`StereoPannerNode`):**
+   * Target offsets `(dxQ16, dyQ16)` project onto discrete balanced ternary bearings `{-1, 0, +1}` (ported from [`anima_esoteric_mirror/src/ternary_projection.py`](https://github.com/Borealiscodes/anima_esoteric_mirror/blob/main/src/ternary_projection.py)), driving stereo pan (`-0.75 / 0 / +0.75`) and proximity pitch (`220 Hz → 660 Hz`) with gain clamped at `<= 0.08`.
+3. **Refreshable Braille Displays & Tactile Pin Arrays (`U+2800`–`U+28FF`):**
+   * Emits a 5-cell Unicode Braille spatial radar bar (`renderBrailleRadarBar`) readable over standard USB/Bluetooth HID Braille displays (e.g., Brailliant, Focus, Orbit Reader, Dot Pad) alongside full Gamepad API support for the **Xbox Adaptive Controller** and **PlayStation Access Controller**.
+4. **Slew-Rate & Clipping-Protected Dual-Actuator Haptics (`anima_esoteric_mirror/src/core.py`):**
+   * Ports `AnimaCoreConductor`'s `h_safe_attenuation_active` guardrail into `Q16.16` integer math (`computeSafeHapticEnvelopeQ16`), clamping left/right actuator frequencies (`0–150 Hz` low, `0–220 Hz` high) and limiting per-tick slew rate (`<= 0.35` normalized step) to prevent sudden startle jolts or actuator clipping.
+
